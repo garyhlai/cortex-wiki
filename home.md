@@ -3,7 +3,7 @@
 
 # Cortex Overview
 ## What is Cortex?
-Cortex is the first ever blockchain technology that allows the execution of AI algorithms on the blockchain. Cortex provides an AI platform for developers to upload their models on the blockchain and be incorporated into smart contracts. 
+Cortex is the first ever blockchain technology that allows the execution of AI algorithms on the blockchain. Cortex provides an AI platform for developers to upload their models on the blockchain and be incorporated into smart contracts. The MainNet was launched at the end of June, 2019.
 
 To put it in context, blockchain started with bitcoin, a decentralized digital currency. Then entered Ethereum, which allows programming on top of the blockchain, namely the smart contract. Now Cortex builds on Ethereum to enable AI-powered smart contract. 
 (The relationship between Cortex, Ethereum, and Bitcoin)
@@ -32,8 +32,66 @@ This creates an ecosystem where individual AI developers, not just big corporati
 Machine learning is a subfield of AI and by far the most promising one in helping achieve better artificial intelligence. The basic idea of machine learning is to train machines to certain perform tasks without explicitly programming them. In our marketing semantics and the machine learning communities in general, they have been used rather interchangeably. 
 
 
+## Could you please tell me what are the difficulties to run AI models on the blockchain? Why is the deterministic engine so important?
+The amount of computation of the AI model exceeds the capabilities of Ethereum's "world computer", so accelerators such as GPUs need to be introduced to speed up the process. 
+
+In today's model inference, there are floating-point numbers and parallel computation parts, which bring uncertainty to the computation results, which is unacceptable when verifying blockchain transactions. The popular quantization method is also not specifically designed to be deterministic. It is therefore necessary to develop an inference engine and a training engine specifically designed for blockchain consensus.
+
+This goal is indeed quite challenging. The main technical difficulties also correspond to the frontier research direction in the Bay Area, including the quantized acceleration method of the deep neural network (DNN) model and the virtualization method adapted to the AI ​​accelerator. The AI industry’s main concern in quantized acceleration research focuses more on speeding up centralized inference and model compression; however, on the blockchain, we need to ensure the deterministic nature of computations. Here, we do not simply use existing frameworks such as Tensorflow, MXNet, or PyTorch, but rather aim to design frameworks optimized for the needs of on-chain inference.
+
+Making engines deterministic has its technical difficulties, considering the cumulative overflow and compatibility with different hardware platforms; we are solving a lot of engineering problems. Only deterministic engines can bring about algorithmic consensus and realize the transparency and immutability of blockchain’s self-verifying mechanism. For example, let’s say an autonomous vehicle got into an accident, the inference for the move that caused the accident must be based on open blockchain consensus to reduce disputes and settle liabilities.
+
+
+## What Algorithm is used for Proof of Work?
+Cuckoo Cycle. 
+
 ## How is Cortex different from other AI On Blockchain projects?
 We are the only project that allows you to run AI programs on the blockchain realistically. 
+
+## Use Cases for AI on Blockchain?
+
+Games and game AIs (such as Fomo3D or sports betting) are the most likely to be the first mass-market, because they form the shortest closed loop. Fintech blockchain technologies, such as anti-fraud in decentralized exchanges, credit systems, lending and smart investment, will probably be the next biggest market, considering all their data will be stored on the blockchain. In addition, we can realize stablecoin model controlled by AI-model on Cortex, and the on-chain  inference process makes it much more transparent than other stablecoins such as USDT. Furthermore,  decentralized autonomous token distribution, decentralized anonymous advertisement recommendation engine, autonomous driving, native Cortex AI Dapps, and really any mass markets that involve AI will see use cases on Cortex. 
+
+
+
+# Community
+## How do you attract developers or companies to develop on Cortex? What moves has Cortex made to encourage developers to come?
+
+We treat attracting developers and companies to Cortex as a system project that integrates improving development environment, maintaining user & developer community, and developing Cortex wallet on various platforms. Above all Cortex prioritizes enhancing the development environment, seeking to create a suite of tools analogous to the development ecological layout of XCode/Android Studio for IOS/Android. 
+
+ As of right now there exists rarely any public chain with similar level of developer-friendliness as Ethereum, and we strive to change this by focusing on two general directions.
+
+First, we guarantee a high degree of compatibility with Ethereum. We allow Ethereum developers to migrate their existing Ethereum Dapp to Cortex at almost zero cost and enhance their Dapps by incorporating AI features. This will drastically lower the cost of learning - developers familiar with Ethereum can start developing on Cortex with very little additional learning.
+
+Second, we will highlight Cortex’s new unique computing environment that activates the AI features for Dapps, something remains to be seen by developers and companies. For the first time, developers will be able to create true AI Dapps such as The Master of Digital Clash by inferring models on the chain. 
+
+In addition to the points already mentioned, from the perspective of development, Cortex is an open-source project that will be constantly evolving in accordance to the preferences of developers that build on them. We provide an web IDE for AI Dapp developers, and for model developers, we offer support for computational power, model libraries, and standardized data sets. Our team will continue to work closely with developers to help implement their technologies in various scenarios. 
+
+From the perspective of operation, we will follow up with Hackathons and challenge bounties, activities closely linked to token incentives. In addition, we realize that developers like to interact with leading industry figures through activities such as AMAs and have included these in our operation plans. 
+
+
+## What tools will you provide to help developers to develop?
+We provide an web IDE for AI Dapp developers, and for model developers, we offer support for computational power, model libraries, and standardized data sets. Our team will continue to work closely with developers to help implement their technologies in various scenarios. 
+
+
+# Developing on Cortex
+## Where can I get started developing on Cortex?
+## What is the process to upload AI models to Cortex?
+
+
+# Mining
+
+## No support for AMD, only for NVDIA?
+
+
+## Hardware needed to run a Cortex full node?
+A 1060 GPU or even a MX150 GPU laptop is enough. We currently have some nodes running the full node. You can check it out at http://monitor.cortexlabs.ai/table-list
+
+
+## Does your platform support WASM or is WASM compatible?
+WASM compatibility is not the focus of the Cortex MainNet, and WASM programming is not directly supported yet. However, if it turns out to be adopted by the blockchain industry mainstream, we will work to support it. We pay very close attention to Ethereum's progress in this regard.
+
+
 
 
 
