@@ -15,6 +15,8 @@ Cortex is built from the ground up to run on the GPU/FPGA. This allows AI models
 
 ![Hiearchy](/uploads/hiearchy.png "Hiearchy")
 
+<img src="/uploads/hiearchy.png" style="width:200px; margin-left:2%"/>
+
 ## Why do we want to run AI model on the blockchain? Wouldn’t that be very expensive?
 Running AI model on the blockchain ensures the integrity of the model. For example, let’s say a smart contract is programmed to give Amy 100 dollars if the facial recognition model recognizes the person as Amy. If the facial recognition model has to run off-chain, its security would be severely compromised: a hacker can change the model to recognize his own face and thereby steal the 100 dollars from the smart contract. On the other hand, if the execution of the facial recognition model happens on the blockchain, it would be very hard to hack the model.  
 
