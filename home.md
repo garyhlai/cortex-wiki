@@ -2,6 +2,8 @@
 <!-- SUBTITLE: Your Guide to the AI on Blockchain Ecosystem -->
 
 # Cortex Overview
+[What is Cortex](/cortex-overview)
+
 # Cortex Use Cases
 # Developing on Cortex
 # Mining
