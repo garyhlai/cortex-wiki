@@ -6,7 +6,7 @@
 Cortex is the first ever blockchain technology that allows the execution of AI algorithms on the blockchain. Cortex provides an AI platform for developers to upload their models on the blockchain and be incorporated into smart contracts. The MainNet was launched at the end of June, 2019.
 
 To put it in context, blockchain started with bitcoin, a decentralized digital currency. Then entered Ethereum, which allows programming on top of the blockchain, namely the smart contract. Now Cortex builds on top of Ethereum to enable AI-powered smart contract. 
-<img src="/uploads/hiearchy.png" style="width:450px; margin-left:2%"/>
+<img src="/uploads/hiearchy.png" style="width:450px; margin: 1%; "/>
 (The relationship between Cortex, Ethereum, and Bitcoin)
 
 ## How does Cortex compare to conventional blockchains like Ethereum?
