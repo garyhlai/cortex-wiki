@@ -5,15 +5,13 @@
 ## What is Cortex?
 Cortex is the first ever blockchain technology that allows the execution of AI algorithms on the blockchain. Cortex provides an AI platform for developers to upload their models on the blockchain and be incorporated into smart contracts. The MainNet was launched at the end of June, 2019.
 
-To put it in context, blockchain started with bitcoin, a decentralized digital currency. Then entered Ethereum, which allows programming on top of the blockchain, namely the smart contract. Now Cortex builds on Ethereum to enable AI-powered smart contract. 
+To put it in context, blockchain started with bitcoin, a decentralized digital currency. Then entered Ethereum, which allows programming on top of the blockchain, namely the smart contract. Now Cortex builds on top of Ethereum to enable AI-powered smart contract. 
+<img src="/uploads/hiearchy.png" style="width:450px; margin-left:2%"/>
 (The relationship between Cortex, Ethereum, and Bitcoin)
 
-## How does Cortex compare to Ethereum?
-Right now Ethereum runs on the CPU; therefore, one cannot run non-trivial AI models on Ethereum. Incorporating AI into an Ethereum Dapp would require off-chain solution which would compromise the integrity and security of the AI model and in a sense defeat the purpose of a smart contract. 
+## How does Cortex compare to conventional blockchains like Ethereum?
+Right now, conventional blockchains like Ethereum have virtual machines that run on the CPU, which cannot** realistically execute non-trivial AI models.** To incorporate any sort of AI into an Ethereum Dapp, for example, would require running the AI models off-chain, which defeats the purpose of a smart contract. The <a href="https://www.cortexlabs.ai">Cortex team </a> addresses this problem by building a virtual machine that runs on the GPU. This allows AI models to execute directly on the blockchain, enabling **true AI smart contract.** In addition, the CVM is backward-compatible with the EVM, so Ethereum developers can easily migrate their applications onto to the Cortex blockchain and on top of that, incorporate AI models into them.  
 
-Cortex is built from the ground up to run on the GPU/FPGA. This allows AI models to execute directly on the blockchain, enabling true AI smart contract. In addition, the CVM is backward-compatible with the EVM, so Ethereum developers can easily migrate their applications onto to the Cortex blockchain.  
-
-<img src="/uploads/hiearchy.png" style="width:450px; margin-left:2%"/>
 
 ## Why do we want to run AI model on the blockchain? Wouldn’t that be very expensive?
 Running AI model on the blockchain ensures the integrity of the model. For example, let’s say a smart contract is programmed to give Amy 100 dollars if the facial recognition model recognizes the person as Amy. If the facial recognition model has to run off-chain, its security would be severely compromised: a hacker can change the model to recognize his own face and thereby steal the 100 dollars from the smart contract. On the other hand, if the execution of the facial recognition model happens on the blockchain, it would be very hard to hack the model.  
