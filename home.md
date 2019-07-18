@@ -58,7 +58,7 @@ Games and game AIs (such as Fomo3D or sports betting) are the most likely to be 
 * **AI Governance:** stablecoins based on machine learning, sentiment analysis, decentralized decision making, malicious behavior detection, smart resource allocation
 * **Others:** on-chain data mining, facial recognition, recommendation, chatbot, machine translation, voice synthesis, etc.
 
-## Specific Use Case Examples <br />
+<h2 style="margin-bottom: 1%;"> Specific Use Case Examples </h2>
 ### Defi
 For example, a decentralized lending app can run an AI algorithm to determine your interest rate based on your personal credit history. The AI used to analyze your credit score is not a black box, but instead, every step of the AI inference is transparent to prevent discrimination and ensure fairness. 
 
