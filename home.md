@@ -87,6 +87,9 @@ The bullet points and specific examples above are only use cases thought of by t
 
 # Mining
 
+## What opeartion systems are supported?
+Right now the official miner implementation only support Linux. However, developers can look into the source code and port it to their own operating systems. 
+
 ## No support for AMD, only for NVDIA?
 
 
@@ -96,6 +99,12 @@ A 1060 GPU or even a MX150 GPU laptop is enough. We currently have some nodes ru
 
 ## Does your platform support WASM or is WASM compatible?
 WASM compatibility is not the focus of the Cortex MainNet, and WASM programming is not directly supported yet. However, if it turns out to be adopted by the blockchain industry mainstream, we will work to support it. We pay very close attention to Ethereum's progress in this regard.
+
+
+
+# Tokenomics 
+
+## How many CTXCs will be issued?
 
 
 
