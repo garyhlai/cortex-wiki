@@ -155,10 +155,12 @@ WASM compatibility is not the focus of the Cortex MainNet, and WASM programming 
 
 ## Tokenomics 
 
-### Token Swap
-#### What is token swap?
-#### Current exchanges that have completed the token swap for CTXCs
-#### How long does token swap last?
+### What is token swap?
+
+### Current exchanges that have completed the token swap for CTXCs?
+
+
+### How long does token swap last?
 At least a year
 
 ### How many CTXCs will be issued?
