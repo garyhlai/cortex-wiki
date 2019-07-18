@@ -53,6 +53,51 @@ We are the only project that allows you to run AI programs on the blockchain rea
 Games and game AIs (such as Fomo3D or sports betting) are the most likely to be the first mass-market, because they form the shortest closed loop. Fintech blockchain technologies, such as anti-fraud in decentralized exchanges, credit systems, lending and smart investment, will probably be the next biggest market, considering all their data will be stored on the blockchain. In addition, we can realize stablecoin model controlled by AI-model on Cortex, and the on-chain  inference process makes it much more transparent than other stablecoins such as USDT. Furthermore,  decentralized autonomous token distribution, decentralized anonymous advertisement recommendation engine, autonomous driving, native Cortex AI Dapps, and really any mass markets that involve AI will see use cases on Cortex. 
 
 
+# Cortex Use Cases
+* **DeFi: **credit report, anti-fraud in decentralized exchanges, p2p financing, insurance, cryptocurrency lending
+* **Gaming:** AI judge, player agent, NPC, assistant/coaching/education
+* **Global Climate Action & Carbon Credit Management and Trading:** collects environmental data and puts on the blockchain for a transparent carbon pricing system
+* **AI Governance:** stablecoins based on machine learning, sentiment analysis, decentralized decision making, malicious behavior detection, smart resource allocation
+* **Others:** on-chain data mining, facial recognition, recommendation, chatbot, machine translation, voice synthesis, etc.
+
+## Specific Use Case Examples
+### Defi
+For example, a decentralized lending app can run an AI algorithm to determine your interest rate based on your personal credit history. The AI used to analyze your credit score is not a black box, but instead, every step of the AI inference is transparent to prevent discrimination and ensure fairness. 
+
+### Gaming
+CryptoKitties would be much cuter, more life-like, and unique if they incorporated AI. Imagine these kitties moving dynamically and behaving uniquely depending on your personal experience interacting with them. While Ethereum is not able to execute AI models and allow for this user experience, this is something that Cortex can uniquely enable.
+
+### Insurance
+Blockchain finds many use cases in the insurance industry, where immutability, fairness, openness, and transparency are in high demand. AI can help improve underwriting decisions, better manage risks, and prevent fraud. An insurance DAO powered by on-chain AI can bring us better, cheaper, fairer, and less bureaucratic insurance. 
+
+### Decentralized Uber
+Almost every aspect of Uber involves AI, from matching drivers and riders, route optimization, driver onboarding to determining fares. Therefore, if we want to build a decentralized Uber, it is necessary to be able to run AI on the blockchain. 
+
+### Anti-fake AI
+The emergence of deepfakes (AI-manipulated videos that are indistinguishable to the human eye) poses a significant threat to society. Social stability will inevitably suffer if video recordings can simply be dismissed as untrustworthy in court. Anti-fake AI algorithms (algorithms that detect whether a video has been tampered with) will run on the blockchain to ensure their transparency and fairness, especially if there were to be used in court. 
+
+The bullet points and specific examples above are only use cases thought of by the Cortex team alone. It is almost certain that the community will conceive many more and better use cases for AI on the blockchain. After all, rarely anyone thought of the best use cases for the internet today when it was first invented.
+
+
+# Developing on Cortex
+## Where can I get started developing on Cortex?
+## What is the process to upload AI models to Cortex?
+
+
+# Mining
+
+## No support for AMD, only for NVDIA?
+
+
+## Hardware needed to run a Cortex full node?
+A 1060 GPU or even a MX150 GPU laptop is enough. We currently have some nodes running the full node. You can check it out at http://monitor.cortexlabs.ai/table-list
+
+
+## Does your platform support WASM or is WASM compatible?
+WASM compatibility is not the focus of the Cortex MainNet, and WASM programming is not directly supported yet. However, if it turns out to be adopted by the blockchain industry mainstream, we will work to support it. We pay very close attention to Ethereum's progress in this regard.
+
+
+
 
 # Community
 ## How do you attract developers or companies to develop on Cortex? What moves has Cortex made to encourage developers to come?
@@ -72,24 +117,6 @@ From the perspective of operation, we will follow up with Hackathons and challen
 
 ## What tools will you provide to help developers to develop?
 We provide an web IDE for AI Dapp developers, and for model developers, we offer support for computational power, model libraries, and standardized data sets. Our team will continue to work closely with developers to help implement their technologies in various scenarios. 
-
-
-# Developing on Cortex
-## Where can I get started developing on Cortex?
-## What is the process to upload AI models to Cortex?
-
-
-# Mining
-
-## No support for AMD, only for NVDIA?
-
-
-## Hardware needed to run a Cortex full node?
-A 1060 GPU or even a MX150 GPU laptop is enough. We currently have some nodes running the full node. You can check it out at http://monitor.cortexlabs.ai/table-list
-
-
-## Does your platform support WASM or is WASM compatible?
-WASM compatibility is not the focus of the Cortex MainNet, and WASM programming is not directly supported yet. However, if it turns out to be adopted by the blockchain industry mainstream, we will work to support it. We pay very close attention to Ethereum's progress in this regard.
 
 
 
