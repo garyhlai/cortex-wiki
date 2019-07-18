@@ -88,7 +88,7 @@ The bullet points and specific examples above are only use cases thought of by t
 # Mining
 
 ## What opeartion systems are supported?
-Right now the official miner implementation only support Linux. However, developers can look into the source code and port it to their own operating systems. 
+Right now the official miner implementation only support Linux. However, developers can look into the <a href="https://github.com/CortexFoundation/PoolMiner">source code</a> and port it to their own operating systems. 
 
 ## No support for AMD, only for NVDIA?
 
