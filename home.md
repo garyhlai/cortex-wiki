@@ -52,13 +52,13 @@ Games and game AIs (such as Fomo3D or sports betting) are the most likely to be 
 
 
 # Cortex Use Cases
-* **DeFi: **credit report, anti-fraud in decentralized exchanges, p2p financing, insurance, cryptocurrency lending
+* **DeFi:** credit report, anti-fraud in decentralized exchanges, p2p financing, insurance, cryptocurrency lending
 * **Gaming:** AI judge, player agent, NPC, assistant/coaching/education
 * **Global Climate Action & Carbon Credit Management and Trading:** collects environmental data and puts on the blockchain for a transparent carbon pricing system
 * **AI Governance:** stablecoins based on machine learning, sentiment analysis, decentralized decision making, malicious behavior detection, smart resource allocation
 * **Others:** on-chain data mining, facial recognition, recommendation, chatbot, machine translation, voice synthesis, etc.
 
-## <span style="margin-bottom: 1%;"> Specific Use Case Examples <span>
+## Specific Use Case Examples 
 ### Defi 
 For example, a decentralized lending app can run an AI algorithm to determine your interest rate based on your personal credit history. The AI used to analyze your credit score is not a black box, but instead, every step of the AI inference is transparent to prevent discrimination and ensure fairness. 
 
