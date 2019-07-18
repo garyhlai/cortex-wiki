@@ -2,13 +2,13 @@
 <!-- SUBTITLE: Your Guide to the AI on Blockchain Ecosystem -->
 
 # Table of Contents
-## [Cortex Overview](/cortex-overview)
-## Cortex Use Cases
-## Developing on Cortex
-## Mining
-## Tokenomics
-## Community
-
+> * [Cortex Overview](/cortex-overview)
+> * Cortex Use Cases
+> * Developing on Cortex
+> * Mining
+> * Tokenomics
+> * Community
+> 
 
 
 
