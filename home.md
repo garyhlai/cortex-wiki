@@ -14,10 +14,13 @@ Right now, conventional blockchains like Ethereum have virtual machines that run
 
 
 ## Why do we want to run AI model on the blockchain? Wouldn’t that be very expensive?
-Running AI model on the blockchain ensures the integrity of the model. For example, let’s say a smart contract is programmed to give Amy 100 dollars if the facial recognition model recognizes the person as Amy. If the facial recognition model has to run off-chain, its security would be severely compromised: a hacker can change the model to recognize his own face and thereby steal the 100 dollars from the smart contract. On the other hand, if the execution of the facial recognition model happens on the blockchain, it would be very hard to hack the model.  
+Running AI model on the blockchain ensures the integrity of the model. 
 
-The transaction fee is extremely low if the network is not super busy. 
-What does “Decentralized AI Autonomous Ecosystem” mean? How does Cortex decentralize AI?  
+For example, let’s say a smart contract is programmed to give Amy 100 dollars if the facial recognition model recognizes the person as Amy. If the facial recognition model has to run off-chain, its security would be severely compromised: a hacker can change the model to recognize his own face and thereby steal the 100 dollars from the smart contract. On the other hand, if the execution of the facial recognition model happens on the blockchain, it would be very hard to hack the model.  
+
+With the CVM coupled with the quantization method developed by the Cortex team, running AI on the blockchain has become cost-effective and realistic. The transaction fee is extremely low if the network is not super busy. 
+
+## What does “Decentralized AI Autonomous Ecosystem” mean? How does Cortex decentralize AI?  
 
 To understand this question, we need to first understand the infrastructure of the Cortex blockchain.
 
@@ -27,7 +30,7 @@ This creates an ecosystem where individual AI developers, not just big corporati
 
 ## Sometimes you use the word “AI” and sometimes you use the word “machine learning”, what is the relationship between these two terms?
 
-Machine learning is a subfield of AI and by far the most promising one in helping achieve better artificial intelligence. The basic idea of machine learning is to train machines to certain perform tasks without explicitly programming them. In our marketing semantics and the machine learning communities in general, they have been used rather interchangeably. 
+Machine learning is a subfield of AI and by far the most promising one in helping achieve better artificial intelligence. The basic idea of machine learning is to train machines to certain perform tasks without explicitly programming them. Nowadays, they have been used rather interchangeably due to the dominance of machine learning as a method of aritificial intelligence. 
 
 
 ## Could you please tell me what are the difficulties to run AI models on the blockchain? Why is the deterministic engine so important?
