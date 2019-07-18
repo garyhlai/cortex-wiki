@@ -61,56 +61,62 @@ Games and game AIs (such as Fomo3D or sports betting) are the most likely to be 
 * **AI Governance:** stablecoins based on machine learning, sentiment analysis, decentralized decision making, malicious behavior detection, smart resource allocation
 * **Others:** on-chain data mining, facial recognition, recommendation, chatbot, machine translation, voice synthesis, etc.
 
-## Specific Use Case Examples 
-### Defi 
+### Specific Use Case Examples 
+#### Defi 
 For example, a decentralized lending app can run an AI algorithm to determine your interest rate based on your personal credit history. The AI used to analyze your credit score is not a black box, but instead, every step of the AI inference is transparent to prevent discrimination and ensure fairness. 
 
-### Gaming
+#### Gaming
 CryptoKitties would be much cuter, more life-like, and unique if they incorporated AI. Imagine these kitties moving dynamically and behaving uniquely depending on your personal experience interacting with them. While Ethereum is not able to execute AI models and allow for this user experience, this is something that Cortex can uniquely enable.
 
-### Insurance
+#### Insurance
 Blockchain finds many use cases in the insurance industry, where immutability, fairness, openness, and transparency are in high demand. AI can help improve underwriting decisions, better manage risks, and prevent fraud. An insurance DAO powered by on-chain AI can bring us better, cheaper, fairer, and less bureaucratic insurance. 
 
-### Decentralized Uber
+#### Decentralized Uber
 Almost every aspect of Uber involves AI, from matching drivers and riders, route optimization, driver onboarding to determining fares. Therefore, if we want to build a decentralized Uber, it is necessary to be able to run AI on the blockchain. 
 
-### Anti-fake AI
+#### Anti-fake AI
 The emergence of deepfakes (AI-manipulated videos that are indistinguishable to the human eye) poses a significant threat to society. Social stability will inevitably suffer if video recordings can simply be dismissed as untrustworthy in court. Anti-fake AI algorithms (algorithms that detect whether a video has been tampered with) will run on the blockchain to ensure their transparency and fairness, especially if there were to be used in court. 
 
 The bullet points and specific examples above are only use cases thought of by the Cortex team alone. It is almost certain that the community will conceive many more and better use cases for AI on the blockchain. After all, rarely anyone thought of the best use cases for the internet today when it was first invented.
 
 
-# Developing on Cortex
-## Where can I get started developing on Cortex?
-## What is the process to upload AI models to Cortex?
+## Developing on Cortex
+### Where can I get started developing on Cortex?
+### What is the process to upload AI models to Cortex?
 
 
-# Mining
+## Mining
 
-## What opeartion systems are supported?
+### What opeartion systems are supported?
 Right now the official miner implementation only support Linux. However, developers can look into the <a href="https://github.com/CortexFoundation/PoolMiner">source code</a> and port it to their own operating systems. 
 
-## No support for AMD, only for NVDIA?
+### No support for AMD, only for NVDIA?
 
 
-## Hardware needed to run a Cortex full node?
+### Hardware needed to run a Cortex full node?
 A 1060 GPU or even a MX150 GPU laptop is enough. We currently have some nodes running the full node. You can check it out at http://monitor.cortexlabs.ai/table-list
 
 
-## Does your platform support WASM or is WASM compatible?
+### Does your platform support WASM or is WASM compatible?
 WASM compatibility is not the focus of the Cortex MainNet, and WASM programming is not directly supported yet. However, if it turns out to be adopted by the blockchain industry mainstream, we will work to support it. We pay very close attention to Ethereum's progress in this regard.
 
 
 
-# Tokenomics 
+## Tokenomics 
 
-## How many CTXCs will be issued?
+### Token Swap
+#### What is token swap?
+#### Current exchanges that have completed the token swap for CTXCs
+#### How long does token swap last?
+At least a year
+
+### How many CTXCs will be issued?
 
 
 
 
-# Community
-## How do you attract developers or companies to develop on Cortex? What moves has Cortex made to encourage developers to come?
+## Community
+### How do you attract developers or companies to develop on Cortex? What moves has Cortex made to encourage developers to come?
 
 We treat attracting developers and companies to Cortex as a system project that integrates improving development environment, maintaining user & developer community, and developing Cortex wallet on various platforms. Above all Cortex prioritizes enhancing the development environment, seeking to create a suite of tools analogous to the development ecological layout of XCode/Android Studio for IOS/Android. 
 
@@ -125,7 +131,7 @@ In addition to the points already mentioned, from the perspective of development
 From the perspective of operation, we will follow up with Hackathons and challenge bounties, activities closely linked to token incentives. In addition, we realize that developers like to interact with leading industry figures through activities such as AMAs and have included these in our operation plans. 
 
 
-## What tools will you provide to help developers to develop?
+### What tools will you provide to help developers to develop?
 We provide an web IDE for AI Dapp developers, and for model developers, we offer support for computational power, model libraries, and standardized data sets. Our team will continue to work closely with developers to help implement their technologies in various scenarios. 
 
 
