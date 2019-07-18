@@ -1,14 +1,13 @@
 <!-- TITLE: Official Cortex Wiki -->
 <!-- SUBTITLE: Your Guide to the AI on Blockchain Ecosystem -->
 
-# Cortex Overview
-[What is Cortex](/cortex-overview)
-
-# Cortex Use Cases
-# Developing on Cortex
-# Mining
-# Tokenomics
-# Community
+# Table of Contents
+* [Cortex Overview](/cortex-overview)
+* Cortex Use Cases
+* Developing on Cortex
+* Mining
+* Tokenomics
+* Community
 
 
 
