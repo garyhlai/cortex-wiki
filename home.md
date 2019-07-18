@@ -2,6 +2,18 @@
 <!-- SUBTITLE: Your Guide to the AI on Blockchain Ecosystem -->
 
 # Cortex Overview
+# Cortex Use Cases
+# Developing on Cortex
+# Mining
+# Tokenomics
+# Community
+
+
+
+
+
+
+
 ## What is Cortex?
 Cortex is the first ever blockchain technology that allows the execution of AI algorithms on the blockchain. Cortex provides an AI platform for developers to upload their models on the blockchain and be incorporated into smart contracts. The MainNet was launched at the end of June, 2019. The whitepaper can be found <a href="https://www.cortexlabs.ai/Cortex_AI_on_Blockchain_EN.pdf">here</a>.
 
