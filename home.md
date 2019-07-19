@@ -136,7 +136,7 @@ Reward: 2.5 per block (half every 4 years)  =  8409600
 Right now the official miner implementation only support Linux. However, developers can look into the <a href="https://github.com/CortexFoundation/PoolMiner">source code</a> and port it to their own operating systems. 
 
 ### No support for AMD, only for NVDIA?
-
+Right now we've only officially tested 1080ti and 2080ti. You can mine with titan v and titan rtx but it wouldn't be too cost-effective. No support for amd yet but may come later. In general we need VRAM above 10.5G. The point of the Cuckoo cycle algorithm is to bind the solution time to memory bandwidth, making mining ASIC-resistant to ensure true decentralization.
 
 ### Hardware needed to run a Cortex full node?
 A 1060 GPU or even a MX150 GPU laptop is enough. We currently have some nodes running the full node. You can check it out at http://monitor.cortexlabs.ai/table-list
