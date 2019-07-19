@@ -101,8 +101,14 @@ The bullet points and specific examples above are only use cases thought of by t
 
 
 ## Developing on Cortex
+
+### Why should I develop on Cortex?
+
+Cortex is the only blockchain that can realistically execute AI programs. As a DApp developer, if you want to incorporate any sort of AI algorithms into your DApps without resorting to off-chain AI solutions, Cortex is currently the only place you can do so. As an AI developer, you can upload AI models onto the storage of Cortex, and whenever your model is called, you will be rewarded some CTXCs that come from part of the transaction fee. 
+
 ### Where can I get started developing on Cortex?
 ### What is the process to upload AI models to Cortex?
+### What are some of the models that are currently on Cortex. 
 
 
 ## Mining
@@ -149,17 +155,17 @@ WASM compatibility is not the focus of the Cortex MainNet, and WASM programming 
 
 ## Tokenomics 
 
-### What is token swap?
-
 ### Current exchanges that have completed the token swap for CTXCs?
 
 As of right now, Bitforex and OKex are the only two exchanges that have completed CTXC token swaps for their users, meaning that the addresses on these exchanges are MainNet addresses. Warning: DO NOT try to send ERC20 CTXCs into a Cortex MainNet address nor send MainNet CTXCs into an ERC20 (Eth) address. If you don’t understand what this means, please reach out to us and we can help explain further. Our suggestions is that if you hold ERC20 CTXCs (bought before the MainNet launch), you carry out a token swap following this guide <a href="https://medium.com/cortexlabs/cortex-mainnet-token-swap-announcement-c06769c40663">here</a>.
 
 ### How long does token swap last?
-At least a year
+At least a year.
 
 ### How many CTXCs will be issued?
+Cortex Coins will be classically capped 299,792,458 coins. 150,000,000 Cortex Coins will be issued by mining.
 
+![Screen Shot 2019 07 02 At 5 01 46 Pm](/uploads/screen-shot-2019-07-02-at-5-01-46-pm.png "Screen Shot 2019 07 02 At 5 01 46 Pm")
 
 
 
