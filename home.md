@@ -13,6 +13,9 @@ To put it in context, blockchain started with bitcoin, a decentralized digital c
 ### How does Cortex compare to conventional blockchains like Ethereum?
 Right now, conventional blockchains like Ethereum have virtual machines that run on the CPU, which cannot **realistically execute non-trivial AI models.** To incorporate any sort of AI into an Ethereum Dapp, for example, would require running the AI models off-chain, which defeats the purpose of a smart contract. The <a href="https://www.cortexlabs.ai">Cortex team </a> addresses this problem by building a virtual machine that runs on the GPU. This allows AI models to execute directly on the blockchain, enabling **true AI smart contract.** In addition, the CVM is backward-compatible with the EVM, so Ethereum developers can easily migrate their applications onto to the Cortex blockchain and on top of that, incorporate AI models into them.  
 
+### How does Cortex compare to other AI on Blockchain projects?
+We are the only project that allows you to run AI programs on the blockchain realistically. 
+
 ### How does Cortex enable on-chain AI?
 The amount of computation of the AI model exceeds the capabilities of Ethereum's "world computer", so accelerators such as GPUs need to be introduced to speed up the process. 
 
@@ -69,10 +72,8 @@ Cortex Remix mainly consists of two functional modules: compilation and deployme
 The compilation module supports compilation and optimization of AI smart contracts. Complied abi, bytecode, and additional information are also displayed in this module.
 The deployment module can help deploy AI smart contracts to the Cortex network with the support of Cortex Wallet, allowing for on-chain inference. 
 
-### How is Cortex different from other AI On Blockchain projects?
-We are the only project that allows you to run AI programs on the blockchain realistically. 
 
-### Use Cases for AI on Blockchain?
+## Use Cases for AI on Blockchain?
 
 Games and game AIs (such as Fomo3D or sports betting) are the most likely to be the first mass-market, because they form the shortest closed loop. Fintech blockchain technologies, such as anti-fraud in decentralized exchanges, credit systems, lending and smart investment, will probably be the next biggest market, considering all their data will be stored on the blockchain. In addition, we can realize stablecoin model controlled by AI-model on Cortex, and the on-chain  inference process makes it much more transparent than other stablecoins such as USDT. Furthermore,  decentralized autonomous token distribution, decentralized anonymous advertisement recommendation engine, autonomous driving, native Cortex AI Dapps, and really any mass markets that involve AI will see use cases on Cortex. 
 
