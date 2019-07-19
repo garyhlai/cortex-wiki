@@ -14,7 +14,7 @@ To put it in context, blockchain started with bitcoin, a decentralized digital c
 Right now, conventional blockchains like Ethereum have virtual machines that run on the CPU, which cannot **realistically execute non-trivial AI models.** To incorporate any sort of AI into an Ethereum Dapp, for example, would require running the AI models off-chain, which defeats the purpose of a smart contract. The <a href="https://www.cortexlabs.ai">Cortex team </a> addresses this problem by building a virtual machine that runs on the GPU. This allows AI models to execute directly on the blockchain, enabling **true AI smart contract.** In addition, the CVM is backward-compatible with the EVM, so Ethereum developers can easily migrate their applications onto to the Cortex blockchain and on top of that, incorporate AI models into them.  
 
 ### How does Cortex compare to other AI on Blockchain projects?
-We are the only project that allows you to run AI programs on the blockchain realistically. 
+Cortex is the only project that allows you to run AI programs on the blockchain realistically. 
 
 ### How does Cortex enable on-chain AI?
 The amount of computation of the AI model exceeds the capabilities of Ethereum's "world computer", so accelerators such as GPUs need to be introduced to speed up the process. 
