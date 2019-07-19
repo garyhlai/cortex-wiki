@@ -13,7 +13,16 @@ To put it in context, blockchain started with bitcoin, a decentralized digital c
 ### How does Cortex compare to conventional blockchains like Ethereum?
 Right now, conventional blockchains like Ethereum have virtual machines that run on the CPU, which cannot **realistically execute non-trivial AI models.** To incorporate any sort of AI into an Ethereum Dapp, for example, would require running the AI models off-chain, which defeats the purpose of a smart contract. The <a href="https://www.cortexlabs.ai">Cortex team </a> addresses this problem by building a virtual machine that runs on the GPU. This allows AI models to execute directly on the blockchain, enabling **true AI smart contract.** In addition, the CVM is backward-compatible with the EVM, so Ethereum developers can easily migrate their applications onto to the Cortex blockchain and on top of that, incorporate AI models into them.  
 
-### Why do we want to run AI model on the blockchain? Wouldn’t that be very expensive?
+### How does Cortex enable on-chain AI?
+The amount of computation of the AI model exceeds the capabilities of Ethereum's "world computer", so accelerators such as GPUs need to be introduced to speed up the process. 
+
+In today's model inference, there are floating-point numbers and parallel computation parts, which bring uncertainty to the computation results, which is unacceptable when verifying blockchain transactions. The popular quantization method is also not specifically designed to be deterministic. It is therefore necessary to develop an inference engine and a training engine specifically designed for blockchain consensus.
+
+This goal is indeed quite challenging. The main technical difficulties also correspond to the frontier research direction in the Bay Area, including the quantized acceleration method of the deep neural network (DNN) model and the virtualization method adapted to the AI ​​accelerator. The AI industry’s main concern in quantized acceleration research focuses more on speeding up centralized inference and model compression; however, on the blockchain, we need to ensure the deterministic nature of computations. Here, we do not simply use existing frameworks such as Tensorflow, MXNet, or PyTorch, but rather aim to design frameworks optimized for the needs of on-chain inference.
+
+Making engines deterministic has its technical difficulties, considering the cumulative overflow and compatibility with different hardware platforms; we are solving a lot of engineering problems. Only deterministic engines can bring about algorithmic consensus and realize the transparency and immutability of blockchain’s self-verifying mechanism. For example, let’s say an autonomous vehicle got into an accident, the inference for the move that caused the accident must be based on open blockchain consensus to reduce disputes and settle liabilities.
+
+### Why do we want to run AI model on the blockchain?
 Running AI model on the blockchain ensures the integrity of the model. 
 
 For example, let’s say a smart contract is programmed to give Amy 100 dollars if the facial recognition model recognizes the person as Amy. If the facial recognition model has to run off-chain, its security would be severely compromised: a hacker can change the model to recognize his own face and thereby steal the 100 dollars from the smart contract. On the other hand, if the execution of the facial recognition model happens on the blockchain, it would be very hard to hack the model.  
@@ -31,16 +40,6 @@ This creates an ecosystem where individual AI developers, not just big corporati
 ### Sometimes you use the word “AI” and sometimes you use the word “machine learning”, what is the relationship between these two terms?
 
 Machine learning is a subfield of AI and by far the most promising one in helping achieve better artificial intelligence. The basic idea of machine learning is to train machines to certain perform tasks without explicitly programming them. Nowadays, they have been used rather interchangeably due to the dominance of machine learning as a method of aritificial intelligence. 
-
-
-### Could you please tell me what are the difficulties to run AI models on the blockchain? Why is the deterministic engine so important?
-The amount of computation of the AI model exceeds the capabilities of Ethereum's "world computer", so accelerators such as GPUs need to be introduced to speed up the process. 
-
-In today's model inference, there are floating-point numbers and parallel computation parts, which bring uncertainty to the computation results, which is unacceptable when verifying blockchain transactions. The popular quantization method is also not specifically designed to be deterministic. It is therefore necessary to develop an inference engine and a training engine specifically designed for blockchain consensus.
-
-This goal is indeed quite challenging. The main technical difficulties also correspond to the frontier research direction in the Bay Area, including the quantized acceleration method of the deep neural network (DNN) model and the virtualization method adapted to the AI ​​accelerator. The AI industry’s main concern in quantized acceleration research focuses more on speeding up centralized inference and model compression; however, on the blockchain, we need to ensure the deterministic nature of computations. Here, we do not simply use existing frameworks such as Tensorflow, MXNet, or PyTorch, but rather aim to design frameworks optimized for the needs of on-chain inference.
-
-Making engines deterministic has its technical difficulties, considering the cumulative overflow and compatibility with different hardware platforms; we are solving a lot of engineering problems. Only deterministic engines can bring about algorithmic consensus and realize the transparency and immutability of blockchain’s self-verifying mechanism. For example, let’s say an autonomous vehicle got into an accident, the inference for the move that caused the accident must be based on open blockchain consensus to reduce disputes and settle liabilities.
 
 ## Cortex Virtual Machine (CVM)
 The Cortex Virtual Machine (CVM), is forked from the Ethereum Virtual Machine (EVM) with added support for AI inference and AI contracts. The CVM is compatible with EVM and capable of running both ethereum smart contracts and AI smart contracts. 
@@ -70,17 +69,12 @@ Cortex Remix mainly consists of two functional modules: compilation and deployme
 The compilation module supports compilation and optimization of AI smart contracts. Complied abi, bytecode, and additional information are also displayed in this module.
 The deployment module can help deploy AI smart contracts to the Cortex network with the support of Cortex Wallet, allowing for on-chain inference. 
 
-
-### What Algorithm is used for Proof of Work?
-Cuckoo Cycle. 
-
 ### How is Cortex different from other AI On Blockchain projects?
 We are the only project that allows you to run AI programs on the blockchain realistically. 
 
 ### Use Cases for AI on Blockchain?
 
 Games and game AIs (such as Fomo3D or sports betting) are the most likely to be the first mass-market, because they form the shortest closed loop. Fintech blockchain technologies, such as anti-fraud in decentralized exchanges, credit systems, lending and smart investment, will probably be the next biggest market, considering all their data will be stored on the blockchain. In addition, we can realize stablecoin model controlled by AI-model on Cortex, and the on-chain  inference process makes it much more transparent than other stablecoins such as USDT. Furthermore,  decentralized autonomous token distribution, decentralized anonymous advertisement recommendation engine, autonomous driving, native Cortex AI Dapps, and really any mass markets that involve AI will see use cases on Cortex. 
-
 
 ## Cortex Use Cases
 * **DeFi:** credit report, anti-fraud in decentralized exchanges, p2p financing, insurance, cryptocurrency lending
@@ -115,8 +109,10 @@ The bullet points and specific examples above are only use cases thought of by t
 
 ## Mining
 
-Mining intro and Spec
-Cortex uses Cuckoo Cycle for its proof of work algorithm. Cuckoo Cycle is a graph theory-based algorithm that is far less energy-intensive than most other CPU, GPU or ASIC-bound PoW algorithms. The goal is to lower mining requirements, ensuring true decentralization and laying the foundation for future scalability.
+### Mining intro and Spec
+Cortex uses Cuckoo Cycle for its proof of work algorithm. 
+
+Cuckoo Cycle is a graph theory-based algorithm that is far less energy-intensive than most other CPU, GPU or ASIC-bound PoW algorithms. The goal is to lower mining requirements, ensuring true decentralization and laying the foundation for future scalability.
 The difficulty adjusts dynamically so that on average, a block is produced every 15 seconds, i.e., 15s block time. This rate ensures the synchronization of the system state while preventing double-spend and history alteration unless an attacker possesses more than 51% of the network's mining power.
 Mining Minimum Requirements
 System: Linux Ubuntu 16.04+
