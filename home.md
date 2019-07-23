@@ -136,7 +136,8 @@ Total reward for mining: 150000000
 Total supply: 299792458
 Reward: 2.5 per block (half every 4 years)  =  8409600
 
-
+### Incentives for running full nodes on Cortex?
+Cortex is similar to Ethereum and Bitcoin in this regard. There are no direct incentives for running a full node since there is no way to verify; however, mining pools, exchanges and data analysis of on-chain data require the running of full nodes. Also, the belief in the decentralized AI on blockchain ecosystem leads people to run full nodes.
 
 ### What opeartion systems are supported?
 Right now the official miner implementation only support Linux. However, developers can look into the <a href="https://github.com/CortexFoundation/PoolMiner">source code</a> and port it to their own operating systems. 
