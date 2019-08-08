@@ -12,12 +12,6 @@ To put it in context, blockchain started with bitcoin, a decentralized digital c
 <img src="/uploads/hiearchy.png" style="width:450px; margin-top: 1%; margin-bottom: 1%; "/>
 (The relationship between Cortex, Ethereum, and Bitcoin)
 
-### How does Cortex compare to conventional blockchains like Ethereum?
-Right now, conventional blockchains like Ethereum have virtual machines that run on the CPU, which cannot **realistically execute non-trivial AI models.** To incorporate any sort of AI into an Ethereum Dapp, for example, would require running the AI models off-chain, which defeats the purpose of a smart contract. The <a href="https://www.cortexlabs.ai">Cortex team </a> addresses this problem by building a virtual machine that runs on the GPU. This allows AI models to execute directly on the blockchain, enabling **true AI smart contract.** In addition, the CVM is backward-compatible with the EVM, so Ethereum developers can easily migrate their applications onto to the Cortex blockchain and on top of that, incorporate AI models into them.  
-
-### How does Cortex compare to other AI on Blockchain projects?
-Cortex is the only project that allows the on-chain execution of AI models.
-
 ### How does Cortex enable on-chain AI?
 
 Executing AI models on the blockchain is a difficult engineering problem that was unsolved before the Cortex team developed their own. 
@@ -33,12 +27,20 @@ The solution developed by Cortex, which involves simulated quantization and inte
 
 These two achievements have made running non-trivial AI models on the blockchain possible. 
 
-### Why do we want to run AI model on the blockchain?
-Running AI model on the blockchain ensures the integrity of the model. 
-
-For example, let’s say a smart contract is programmed to give Amy 100 dollars if the facial recognition model recognizes the person as Amy. If the facial recognition model has to run off-chain, its security would be severely compromised: a hacker can change the model to recognize his own face and thereby steal the 100 dollars from the smart contract. On the other hand, if the execution of the facial recognition model happens on the blockchain, it would be very hard to hack the model.  
-
+### Won't running AI on the blockchain be extremely expensive?
 With the CVM coupled with the quantization method developed by the Cortex team, running AI on the blockchain has become cost-effective and realistic. The transaction fee is extremely low if the network is not super busy. 
+
+### How does Cortex compare to conventional blockchains like Ethereum?
+Right now, conventional blockchains like Ethereum have virtual machines that run on the CPU, which cannot **realistically execute non-trivial AI models.** To incorporate any sort of AI into an Ethereum Dapp, for example, would require running the AI models off-chain, which defeats the purpose of a smart contract. The <a href="https://www.cortexlabs.ai">Cortex team </a> addresses this problem by building a virtual machine that runs on the GPU. This allows AI models to execute directly on the blockchain, enabling **true AI smart contract.** In addition, the CVM is backward-compatible with the EVM, so Ethereum developers can easily migrate their applications onto to the Cortex blockchain and on top of that, incorporate AI models into them.  
+
+### How does Cortex compare to other AI on Blockchain projects?
+Cortex is the only project that allows the on-chain execution of AI models.
+
+### Why do we want to run AI model on the blockchain?
+
+The reasons for running AI programs on the blockchain are exactly the same as those for running "traditional" programs on the blockchain: transparency, integrity, immutability and censorship-resistance. 
+
+A simple example to illustrate the benefits of running AI programs on the blockchain: When an autonomous car crash, we need to look into the AI inferences that lead to the crash to determine the liabilities. Now if the AI models have been run on the blockchain, we can easily verify the inference steps even if the whole car is obliterated since there is no single point of failure.
 
 ### What does “Decentralized AI Autonomous Ecosystem” mean? How does Cortex decentralize AI?  
 
