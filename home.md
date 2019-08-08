@@ -55,31 +55,44 @@ This creates an ecosystem where individual AI developers, not just big corporati
 Machine learning is a subfield of AI and by far the most promising one in helping achieve better artificial intelligence. The basic idea of machine learning is to train machines to certain perform tasks without explicitly programming them. Nowadays, they have been used rather interchangeably due to the dominance of machine learning as a method of aritificial intelligence. 
 
 ## Cortex Virtual Machine (CVM)
-The Cortex Virtual Machine (CVM), is forked from the Ethereum Virtual Machine (EVM) with added support for AI inference and AI contracts. The CVM is compatible with EVM and capable of running both ethereum smart contracts and AI smart contracts. 
+The Cortex Virtual Machine (CVM), is ported from the Ethereum Virtual Machine (EVM) with added support for AI inference and AI contracts. The CVM is compatible with EVM and capable of running both ethereum smart contracts and AI smart contracts. 
+
 The CVM has two layers: infer instructions and deterministic inference engine. 
+
 Infer instructions allows models to be called in contracts through instruction sets, including Infer (code: 0xc0), InferArray (code: 0xc1). 
+
 The deterministic inference engine is called Synapse or the CVM Executor. It guarantees the consistency of AI inference results in heterogeneous computing environments, without significantly compromising performance or accuracy. Synapse proposes a model-based fixed-point execution framework and a corresponding deterministic machine learning operator library. AI developers can train and quantize their models using MRT to be executable on the CVM. 
 
 ## Model Representation Tool (MRT)
 MRT, short for Model Representation Tool, is a deterministic quantization framework developed by Cortex that enables model inference in the limited-resource and strictly deterministic environment of blockchain, ushering in a new generation of AI smart contracts. 
+
 MRT is designed to convert floating point models supported by nnvm into fixed-point models executable on the CVM while preventing significant loss of precision. The quantization method reduces the output number field of all layers of the model to INT8 or INT32 to simulate the floating-point network and converts the operators involved in the floating-point operation into integer operators using fuse and rewrite. Quantization ensures no overflow and guarantees the deterministic outcome of the model execution.
 
 ## Endorphin
 Endorphin in Cortex is similar to Gas in Ethereum. 
+
 To prevent abuse of the Cortex network, a fee is charged for each computational step executed in a transaction. Endorphin is the unit that measures the computational effort required for every transaction made on Cortex. The sender of each transaction is required to include an endorphin limit and an endorphin price. (Transaction fee = endorphin limit * endorphin price) The higher the endorphin price, the more likely and quicker miners will execute and verify the transaction. 
+
 For AI inference, generally speaking, the cost of the endorphin is proportional to the size of the AI model. Cortex also sets an upper bound of 1GB on the parameter size of the model, corresponding to up to about 2 billion Float32 parameters.
+
 Unlike the traditional blockchains where all of the block rewards go to miners, on Cortex, a portion of the block reward goes to the model providers to incentivize them to optimize better models. 
 
 ## Storage Layer
 Cortex uses a distributed file system based on DHT (Distributed Hash Table) as a storage layer solution to reduce network load and network transmission cost. Storage quota is treated as a resource on the Cortex chain. Each mined block provides a 64K byte storage quota. Users freely bid on the use of storage quota with transaction fees.
+
 AI models and input data are treated as a special type of smart contract on the Cortex chain. Creators need to send a special transaction with a function call to the contract in order to advance its upload progress. Each transaction will increase the file upload progress by 512K bytes, consuming the corresponding storage quota. 
+
 After the completion of the upload phase, the file preparation phase is entered. This phase lasts for 100 blocks (about 25 minutes), and at the end of it, the prepared files enter the mature phase and can be used by AI inference contracts.
+
 The owner is responsible for broadcasting the file to the network to reach the entire distributed file system; otherwise, the network consensus will reject relevant contract calls.  
 
 ## Cortex Remix
 Cortex Remix is a browser-based compiler and IDE for programming language Solidity. It is based on the Remix IDE. It supports the compilation and deployment of AI smart contracts as well as debugging transactions.
+
 Cortex Remix mainly consists of two functional modules: compilation and deployment. 
+
 The compilation module supports compilation and optimization of AI smart contracts. Complied abi, bytecode, and additional information are also displayed in this module.
+
 The deployment module can help deploy AI smart contracts to the Cortex network with the support of Cortex Wallet, allowing for on-chain inference. 
 
 ## Cortex Use Cases
