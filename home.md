@@ -134,8 +134,10 @@ The bullet points and specific examples above are only use cases thought of by t
 Cortex is the only blockchain that can realistically execute AI programs. As a DApp developer, if you want to incorporate any sort of AI algorithms into your DApps without resorting to off-chain AI solutions, Cortex is currently the only place you can do so. As an AI developer, you can upload AI models onto the storage of Cortex, and whenever your model is called, you will be rewarded some CTXCs that come from part of the transaction fee. 
 
 ### Where can I get started developing on Cortex?
+
 ### What is the process to upload AI models to Cortex?
-### What are some of the models that are currently on Cortex. 
+
+### What are some of the models that are currently on Cortex?
 
 
 ## Mining
@@ -178,7 +180,6 @@ Right now we have only officially tested 1080ti and 2080ti. You can mine with ti
 ### Hardware needed to run a Cortex full node?
 A 1060 GPU or even a MX150 GPU laptop is enough. 
 
-
 ### Does your platform support WASM or is WASM compatible?
 WASM compatibility is not the focus of the Cortex MainNet, and WASM programming is not directly supported yet. However, if it turns out to be adopted by the blockchain industry mainstream, we will work to support it. We pay very close attention to Ethereum's progress in this regard.
 
@@ -201,19 +202,23 @@ Cortex Coins will be classically capped 299,792,458 coins. 150,000,000 Cortex Co
 
 
 ## Community
-### How do you attract developers or companies to develop on Cortex? What moves has Cortex made to encourage developers to come?
+### Technical Development Plan
+Next up, there will be three major milestones that we aim to reach.
 
-We treat attracting developers and companies to Cortex as a system project that integrates improving development environment, maintaining user & developer community, and developing Cortex wallet on various platforms. Above all Cortex prioritizes enhancing the development environment, seeking to create a suite of tools analogous to the development ecological layout of XCode/Android Studio for IOS/Android. 
+First, we will upgrade the CVM + MRT. Right now, MRT is just a deterministic quantization framework — we hope to turn it into a full-fledged programming language that provides a complete instruction set and better deterministic support. Meanwhile, we want to upgrade the CVM to support more AI models, specifically dynamic models.
 
- As of right now there exists rarely any public chain with similar level of developer-friendliness as Ethereum, and we strive to change this by focusing on two general directions.
+Second, we want to scale by working on possible layer 1 or 2 solution. Our initial target is to increase the TPS to 1000. We will also improve our DOPS (deterministic operations per second), which currently is at 10G DOPS.
 
-First, we guarantee a high degree of compatibility with Ethereum. We allow Ethereum developers to migrate their existing Ethereum Dapp to Cortex at almost zero cost and enhance their Dapps by incorporating AI features. This will drastically lower the cost of learning - developers familiar with Ethereum can start developing on Cortex with very little additional learning.
+Third, we will work to improve the privacy of the AI models. We are researching cryptographic solutions in order to implement shielded on-chain AI inferences. The current thinking is to use zk-starks or zk-snarks as one of the possible layer 1 solutions and trusted computing as a possible layer 2 solution.
 
-Second, we will highlight Cortex’s new unique computing environment that activates the AI features for Dapps, something remains to be seen by developers and companies. For the first time, developers will be able to create true AI Dapps such as The Master of Digital Clash by inferring models on the chain. 
+### Community Development Plan
+Upon the MainNet Launch and the release of Cortex source code, the Cortex team is opening up the development to the decentralized open-source community around the world; however, the Cortex Foundation will continue to provide underlying support to the Cortex blockchain and its open-source ecosystem in many ways: we have established a <a href="https://www.cortexlabs.ai/forum">developer forum</a> and will start to organize online and offline workshops to educate AI developers in navigating the Cortex ecosystem, set up bounty programs, and further develop the open-source technical collaboration mechanism (establish open model libraries and datasets); etc.
 
-In addition to the points already mentioned, from the perspective of development, Cortex is an open-source project that will be constantly evolving in accordance to the preferences of developers that build on them. We provide an web IDE for AI Dapp developers, and for model developers, we offer support for computational power, model libraries, and standardized data sets. Our team will continue to work closely with developers to help implement their technologies in various scenarios. 
+In terms of the AI Dapp ecosystem, the Cortex Foundation will work with Dapp developers and companies around the world to help implement more AI Dapps on the Cortex chain.
+Meanwhile, we will work on cross-chain support: As programs in other blockchains may require running AI on-chain for reliability and transparency, they will be able to execute the AI models on our chain and get the results returned back to their chain for further processing.
 
-From the perspective of operation, we will follow up with Hackathons and challenge bounties, activities closely linked to token incentives. In addition, we realize that developers like to interact with leading industry figures through activities such as AMAs and have included these in our operation plans. 
+Furthermore, we will closely collaborate with academia and industry for research partnerships and publications. Our unique core solutions to implement on-chain AI inference have already gained support from the official MXNet team. There will only be more of such collaborations and partnerships.
+
 
 ## Further Reading & References
 
