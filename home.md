@@ -19,6 +19,11 @@ Right now, conventional blockchains like Ethereum have virtual machines that run
 Cortex is the only project that allows the on-chain execution of AI models.
 
 ### How does Cortex enable on-chain AI?
+
+Executing AI models on the blockchain is a difficult engineering problem was unsolved before the Cortex team developed their own. 
+
+The specific solutions involve building a blockchain whose virtual machine utilizes the GPU and applying a quantization scheme to ensure that the execution of deep learning models is deterministic. The technical details of the original solution, endorsed by the official MXNet team, can be read <a href="https://medium.com/apache-mxnet/quantizing-neural-network-models-in-mxnet-for-strict-consistency-on-blockchain-b5c950674866">here</a>.
+
 The amount of computation of the AI model exceeds the capabilities of Ethereum's "world computer", so accelerators such as GPUs need to be introduced to speed up the process. 
 
 In today's model inference, there are floating-point numbers and parallel computation parts, which bring uncertainty to the computation results, which is unacceptable when verifying blockchain transactions. The popular quantization method is also not specifically designed to be deterministic. It is therefore necessary to develop an inference engine and a training engine specifically designed for blockchain consensus.
