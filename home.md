@@ -20,17 +20,18 @@ Cortex is the only project that allows the on-chain execution of AI models.
 
 ### How does Cortex enable on-chain AI?
 
-Executing AI models on the blockchain is a difficult engineering problem was unsolved before the Cortex team developed their own. 
+Executing AI models on the blockchain is a difficult engineering problem that was unsolved before the Cortex team developed their own. 
 
-The specific solutions involve building a blockchain whose virtual machine utilizes the GPU and applying a quantization scheme to ensure that the execution of deep learning models is deterministic. The technical details of the original solution, endorsed by the official MXNet team, can be read <a href="https://medium.com/apache-mxnet/quantizing-neural-network-models-in-mxnet-for-strict-consistency-on-blockchain-b5c950674866">here</a>.
+The specific solutions involve building a blockchain whose virtual machine utilizes the GPU and applying a quantization scheme to ensure that the execution of deep learning models is deterministic. The technical details of the original solution, endorsed by the official MXNet team, can be read <a href="https://medium.com/apache-mxnet/quantizing-neural-network-models-in-mxnet-for-strict-consistency-on-blockchain-b5c950674866">here</a>. Below is a high-level explanation. 
 
-The amount of computation of the AI model exceeds the capabilities of Ethereum's "world computer", so accelerators such as GPUs need to be introduced to speed up the process. 
+Traditionally, there are two huge obstacles to AI inference on blockchain:
 
-In today's model inference, there are floating-point numbers and parallel computation parts, which bring uncertainty to the computation results, which is unacceptable when verifying blockchain transactions. The popular quantization method is also not specifically designed to be deterministic. It is therefore necessary to develop an inference engine and a training engine specifically designed for blockchain consensus.
+1) Nondeterministic behaviors of DNN models. (If you’re getting slightly different / nondeterministic inference results across different devices, there’s no way for network consensus to occur on the blockchain.)
+2) Resource constraint across devices in a blockchain network.
 
-This goal is indeed quite challenging. The main technical difficulties also correspond to the frontier research direction in the Bay Area, including the quantized acceleration method of the deep neural network (DNN) model and the virtualization method adapted to the AI ​​accelerator. The AI industry’s main concern in quantized acceleration research focuses more on speeding up centralized inference and model compression; however, on the blockchain, we need to ensure the deterministic nature of computations. Here, we do not simply use existing frameworks such as Tensorflow, MXNet, or PyTorch, but rather aim to design frameworks optimized for the needs of on-chain inference.
+The solution developed by Cortex, which involves simulated quantization and integer-only inference, has (1) eliminated the nondeterministic behaviors of DNN models without significant loss of accuracy (2) accelerated DNN models’ inference
 
-Making engines deterministic has its technical difficulties, considering the cumulative overflow and compatibility with different hardware platforms; we are solving a lot of engineering problems. Only deterministic engines can bring about algorithmic consensus and realize the transparency and immutability of blockchain’s self-verifying mechanism. For example, let’s say an autonomous vehicle got into an accident, the inference for the move that caused the accident must be based on open blockchain consensus to reduce disputes and settle liabilities.
+These two achievements have made running non-trivial AI models on the blockchain possible. 
 
 ### Why do we want to run AI model on the blockchain?
 Running AI model on the blockchain ensures the integrity of the model. 
