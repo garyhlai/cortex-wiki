@@ -63,10 +63,14 @@ Infer instructions allows models to be called in contracts through instruction s
 
 The deterministic inference engine is called Synapse or the CVM Executor. It guarantees the consistency of AI inference results in heterogeneous computing environments, without significantly compromising performance or accuracy. Synapse proposes a model-based fixed-point execution framework and a corresponding deterministic machine learning operator library. AI developers can train and quantize their models using MRT to be executable on the CVM. 
 
+Link for further technical details: https://github.com/CortexFoundation/CortexTheseus/tree/dev/infernet
+
 ## Model Representation Tool (MRT)
 MRT, short for Model Representation Tool, is a deterministic quantization framework developed by Cortex that enables model inference in the limited-resource and strictly deterministic environment of blockchain, ushering in a new generation of AI smart contracts. 
 
 MRT is designed to convert floating point models supported by nnvm into fixed-point models executable on the CVM while preventing significant loss of precision. The quantization method reduces the output number field of all layers of the model to INT8 or INT32 to simulate the floating-point network and converts the operators involved in the floating-point operation into integer operators using fuse and rewrite. Quantization ensures no overflow and guarantees the deterministic outcome of the model execution.
+
+Link for further technical details: https://github.com/CortexFoundation/tvm-cvm
 
 ## Endorphin
 Endorphin in Cortex is similar to Gas in Ethereum. 
@@ -102,7 +106,7 @@ The deployment module can help deploy AI smart contracts to the Cortex network w
 * **AI Governance:** stablecoins based on machine learning, sentiment analysis, decentralized decision making, malicious behavior detection, smart resource allocation
 * **Others:** on-chain data mining, facial recognition, recommendation, chatbot, machine translation, voice synthesis, etc.
 
-Games and game AIs (such as Fomo3D or sports betting) are the most likely to be the first mass-market, because they form the shortest closed loop. Fintech blockchain technologies, such as anti-fraud in decentralized exchanges, credit systems, lending and smart investment, will probably be the next biggest market, considering all their data will be stored on the blockchain. In addition, we can realize stablecoin model controlled by AI-model on Cortex, and the on-chain  inference process makes it much more transparent than other stablecoins such as USDT. Furthermore,  decentralized autonomous token distribution, decentralized anonymous advertisement recommendation engine, autonomous driving, native Cortex AI Dapps, and really any mass markets that involve AI will see use cases on Cortex. 
+Games and game AIs (such as Fomo3D or sports betting) are the most likely to be the first mass-market, because they form the shortest closed loop. Fintech blockchain technologies, such as anti-fraud in decentralized exchanges, credit systems, lending and smart investment, will probably be the next biggest market, considering all their data will be stored on the blockchain. In addition, we can realize stablecoin model controlled by AI models on Cortex, and the on-chain inference process makes it much more transparent than other stablecoins such as USDT. Furthermore,  decentralized autonomous token distribution, decentralized anonymous advertisement recommendation engine, autonomous driving, native Cortex AI Dapps, and really any mass markets that involve AI will see use cases on Cortex. 
 
 ### Specific Use Case Examples 
 #### Defi 
@@ -158,6 +162,9 @@ Pre-allocation: 149792458
 Total reward for mining: 150000000
 Total supply: 299792458
 Reward: 2.5 per block (half every 4 years)  =  8409600
+
+Link for further technical details: https://github.com/CortexFoundation/CortexTheseus
+Cortex Miner (official implementation): https://github.com/CortexFoundation/PoolMiner
 
 ### Incentives for running full nodes on Cortex?
 Cortex is similar to Ethereum and Bitcoin in this regard. There are no direct incentives for running a full node since there is no way to verify; however, mining pools, exchanges and data analysis of on-chain data require the running of full nodes. Also, the belief in the decentralized AI on blockchain ecosystem leads people to run full nodes.
