@@ -212,7 +212,7 @@ Second, we want to scale by working on possible layer 1 or 2 solution. Our initi
 Third, we will work to improve the privacy of the AI models. We are researching cryptographic solutions in order to implement shielded on-chain AI inferences. The current thinking is to use zk-starks or zk-snarks as one of the possible layer 1 solutions and trusted computing as a possible layer 2 solution.
 
 ### Community Development Plan
-Upon the MainNet Launch and the release of Cortex source code, the Cortex team is opening up the development to the decentralized open-source community around the world; however, the Cortex Foundation will continue to provide underlying support to the Cortex blockchain and its open-source ecosystem in many ways: we have established a <a href="https://www.cortexlabs.ai/forum">developer forum</a> and will start to organize online and offline workshops to educate AI developers in navigating the Cortex ecosystem, set up bounty programs, and further develop the open-source technical collaboration mechanism (establish open model libraries and datasets); etc.
+Upon the MainNet Launch and the release of Cortex source code, the Cortex team is opening up the development to the decentralized open-source community around the world; however, the Cortex Foundation will continue to provide underlying support to the Cortex blockchain and its open-source ecosystem in many ways: we have established a developer forum and will start to organize online and offline workshops to educate AI developers in navigating the Cortex ecosystem, set up bounty programs, and further develop the open-source technical collaboration mechanism (establish open model libraries and datasets); etc.
 
 In terms of the AI Dapp ecosystem, the Cortex Foundation will work with Dapp developers and companies around the world to help implement more AI Dapps on the Cortex chain.
 Meanwhile, we will work on cross-chain support: As programs in other blockchains may require running AI on-chain for reliability and transparency, they will be able to execute the AI models on our chain and get the results returned back to their chain for further processing.
@@ -221,7 +221,6 @@ Furthermore, we will closely collaborate with academia and industry for research
 
 
 ## Further Reading & References
-*
 **Cortex Wallet: ** https://www.cortexlabs.ai/wallet
 **Block Explorer:** https://cerebro.cortexlabs.ai/
 **Cortex Remix IDE:** https://cerebro.cortexlabs.ai/remix
