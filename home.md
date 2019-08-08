@@ -4,7 +4,9 @@
 # Table of Contents
 ## Cortex Overview
 ### What is Cortex?
-Cortex is the first ever blockchain technology that allows the execution of AI algorithms on the blockchain. Cortex provides an AI platform for developers to upload their models on the blockchain and be incorporated into smart contracts. The MainNet was launched at the end of June, 2019. The whitepaper can be found <a href="https://www.cortexlabs.ai/Cortex_AI_on_Blockchain_EN.pdf">here</a>.
+Cortex is the first public blockchain capable of executing of AI algorithms and AI DApps on the blockchain. Cortex provides an AI platform for developers to upload their models on the blockchain and be incorporated into smart contracts. Instead of a black box, we can run AI models on the blockchain in a decentralized, immutable, and transparent manner − network consensus verifies every step of the AI inference.
+
+The MainNet was launched at the end of June, 2019. The whitepaper can be found <a href="https://www.cortexlabs.ai/Cortex_AI_on_Blockchain_EN.pdf">here</a>.
 
 To put it in context, blockchain started with bitcoin, a decentralized digital currency. Then entered Ethereum, which allows programming on top of the blockchain, namely the smart contract. Now Cortex builds on top of Ethereum to enable AI-powered smart contract. 
 <img src="/uploads/hiearchy.png" style="width:450px; margin-top: 1%; margin-bottom: 1%; "/>
@@ -14,7 +16,7 @@ To put it in context, blockchain started with bitcoin, a decentralized digital c
 Right now, conventional blockchains like Ethereum have virtual machines that run on the CPU, which cannot **realistically execute non-trivial AI models.** To incorporate any sort of AI into an Ethereum Dapp, for example, would require running the AI models off-chain, which defeats the purpose of a smart contract. The <a href="https://www.cortexlabs.ai">Cortex team </a> addresses this problem by building a virtual machine that runs on the GPU. This allows AI models to execute directly on the blockchain, enabling **true AI smart contract.** In addition, the CVM is backward-compatible with the EVM, so Ethereum developers can easily migrate their applications onto to the Cortex blockchain and on top of that, incorporate AI models into them.  
 
 ### How does Cortex compare to other AI on Blockchain projects?
-Cortex is the only project that allows you to run AI programs on the blockchain realistically. 
+Cortex is the only project that allows the on-chain execution of AI models.
 
 ### How does Cortex enable on-chain AI?
 The amount of computation of the AI model exceeds the capabilities of Ethereum's "world computer", so accelerators such as GPUs need to be introduced to speed up the process. 
@@ -143,10 +145,10 @@ Cortex is similar to Ethereum and Bitcoin in this regard. There are no direct in
 Right now the official miner implementation only support Linux. However, developers can look into the <a href="https://github.com/CortexFoundation/PoolMiner">source code</a> and port it to their own operating systems. 
 
 ### No support for AMD, only for NVDIA?
-Right now we've only officially tested 1080ti and 2080ti. You can mine with titan v and titan rtx but it wouldn't be too cost-effective. No support for amd yet but may come later. In general we need VRAM above 10.5G. The point of the Cuckoo cycle algorithm is to bind the solution time to memory bandwidth, making mining ASIC-resistant to ensure true decentralization.
+Right now we have only officially tested 1080ti and 2080ti. You can mine with titan v and titan rtx but it wouldn't be too cost-effective. No support for amd yet but may come later. In general we need VRAM above 10.5G. The point of the Cuckoo cycle algorithm is to bind the solution time to memory bandwidth, making mining ASIC-resistant to ensure true decentralization.
 
 ### Hardware needed to run a Cortex full node?
-A 1060 GPU or even a MX150 GPU laptop is enough. We currently have some nodes running the full node. You can check it out at http://monitor.cortexlabs.ai/table-list
+A 1060 GPU or even a MX150 GPU laptop is enough. 
 
 
 ### Does your platform support WASM or is WASM compatible?
