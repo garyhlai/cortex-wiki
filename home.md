@@ -221,6 +221,7 @@ Furthermore, we will closely collaborate with academia and industry for research
 
 
 ## Further Reading & References
+##
 **Cortex Wallet: ** https://www.cortexlabs.ai/wallet
 **Block Explorer:** https://cerebro.cortexlabs.ai/
 **Cortex Remix IDE:** https://cerebro.cortexlabs.ai/remix
