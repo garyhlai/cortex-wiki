@@ -133,11 +133,13 @@ The bullet points and specific examples above are only use cases thought of by t
 
 Cortex is the only blockchain that can realistically execute AI programs. As a DApp developer, if you want to incorporate any sort of AI algorithms into your DApps without resorting to off-chain AI solutions, Cortex is currently the only place you can do so. As an AI developer, you can upload AI models onto the storage of Cortex, and whenever your model is called, you will be rewarded some CTXCs that come from part of the transaction fee. 
 
+### What are some of the models that are currently on Cortex?
+To start, Cortex has 23 models, trained with four datasets, that serve 7 different purposes. All models have been quantized using MRT, ready to be inferred on the Cortex Virtual Machine (CVM). Since MainNet Launch, the amount of AI models has increased to 27.
+![Image 1](/uploads/image-1.jpg "Image 1")
+
 ### Where can I get started developing on Cortex?
 
-### What is the process to upload AI models to Cortex?
-
-### What are some of the models that are currently on Cortex?
+### What is the process to upload AI models to Cortex? Are there tutorials / documentations?
 
 
 ## Mining
