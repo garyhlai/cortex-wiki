@@ -215,10 +215,16 @@ In addition to the points already mentioned, from the perspective of development
 
 From the perspective of operation, we will follow up with Hackathons and challenge bounties, activities closely linked to token incentives. In addition, we realize that developers like to interact with leading industry figures through activities such as AMAs and have included these in our operation plans. 
 
+## Further Reading & References
 
-### What tools will you provide to help developers to develop?
-We provide an web IDE for AI Dapp developers, and for model developers, we offer support for computational power, model libraries, and standardized data sets. Our team will continue to work closely with developers to help implement their technologies in various scenarios. 
-
+**Cortex Wallet: **https://www.cortexlabs.ai/wallet
+**Block Explorer:** https://cerebro.cortexlabs.ai/
+**Cortex Remix IDE:** https://cerebro.cortexlabs.ai/remix
+**Full Nodes:** https://github.com/CortexFoundation/CortexTheseus
+**Cortex Miner:** https://github.com/CortexFoundation/PoolMiner
+**Token Swap:** https://medium.com/cortexlabs/cortex-mainnet-token-swap-announcement-c06769c40663?postPublishedType=repub
+**Whitepaper:** https://www.cortexlabs.ai/Cortex_AI_on_Blockchain_EN.pdf
+**Cortex Forum:** https://www.cortexlabs.ai/forum
 
 
 
