@@ -148,8 +148,11 @@ To start, Cortex has 23 models, trained with four datasets, that serve 7 differe
 Cortex uses Cuckoo Cycle for its proof of work algorithm. 
 
 Cuckoo Cycle is a graph theory-based algorithm that is far less energy-intensive than most other CPU, GPU or ASIC-bound PoW algorithms. The goal is to lower mining requirements, ensuring true decentralization and laying the foundation for future scalability.
+
 The difficulty adjusts dynamically so that on average, a block is produced every 15 seconds, i.e., 15s block time. This rate ensures the synchronization of the system state while preventing double-spend and history alteration unless an attacker possesses more than 51% of the network's mining power.
-Mining Minimum Requirements
+
+**Mining Minimum Requirements**
+
 System: Linux Ubuntu 16.04+
 GPU: Nvidia GPU with >=10.7GB GDRAM (1080ti, 2080ti, Titan V, etc.)
 Space: 2TB  (the size of the blockchain increases over time)
