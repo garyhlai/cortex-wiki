@@ -224,6 +224,9 @@ Meanwhile, we will work on cross-chain support: As programs in other blockchains
 
 Furthermore, we will closely collaborate with academia and industry for research partnerships and publications. Our unique core solutions to implement on-chain AI inference have already gained support from the official MXNet team. There will only be more of such collaborations and partnerships.
 
+### Technical Documentations:
+** MainNet Github Repo: ** https://github.com/CortexFoundation/CortexTheseus
+**JSON RPC API: **
 
 ## Further Reading & References
 <strong>Cortex Wallet: </strong> https://www.cortexlabs.ai/wallet
