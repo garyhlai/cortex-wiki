@@ -247,7 +247,7 @@ Furthermore, we will closely collaborate with academia and industry for research
 
 ## JavaScript API
 
-<span style="color:red">To talk to an Cortex node from inside a JavaScript application use the [web3.js](https://github.com/ctxc/web3.js) library, which gives a convenient interface for the RPC methods.</span>
+To talk to an Cortex node from inside a JavaScript application use the [web3.js](https://github.com/ctxc/web3.js) library, which gives a convenient interface for the RPC methods.
 
 
 ## JSON-RPC Endpoint
@@ -260,7 +260,7 @@ Default JSON-RPC endpoints:
 
 ### Go
 
-<span style="color:red">You can start the HTTP JSON-RPC with the `--rpc` flag </span>
+You can start the HTTP JSON-RPC with the `--rpc` flag 
 ```bash
 build/bin/cortex --rpc
 ```
@@ -277,7 +277,7 @@ If accessing the RPC from a browser, CORS will need to be enabled with the appro
 build/bin/cortex --rpc --rpccorsdomain "http://localhost:3000"
 ```
 
-<span style="color:red">The JSON RPC can also be started from the [gctxc console](https://github.com/ctxc/go-ctxc/wiki/JavaScript-Console) using the `admin.startRPC(addr, port)` command.</span>
+The JSON RPC can also be started from the [console](https://github.com/ctxc/go-ctxc/wiki/JavaScript-Console) using the `admin.startRPC(addr, port)` command.
 
 
 ## JSON-RPC support
@@ -313,7 +313,7 @@ Currently [cpp-ctxc](https://github.com/ctxc/cpp-ctxc),[go-ctxc](https://github.
 
 ## The default block parameter
 
-The following mctxcods have an extra default block parameter:
+The following methods have an extra default block parameter:
 
 - [ctxc_getBalance](#ctxc_getbalance)
 - [ctxc_getCode](#ctxc_getcode)
@@ -336,7 +336,7 @@ The curl options below might return a response where the node complains about th
 
 The examples also do not include the URL/IP & port combination which must be the last argument given to curl e.x. 127.0.0.1:8545
 
-## JSON-RPC mctxcods
+## JSON-RPC methods
 
 * [web3_clientVersion](#web3_clientversion)
 * [web3_sha3](#web3_sha3)
@@ -421,7 +421,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"web3_clientVersion","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}'
 
 // Result
 {
@@ -455,7 +455,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'
 
 // Result
 {
@@ -486,7 +486,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"net_version","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
 
 // Result
 {
@@ -512,7 +512,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"net_listening","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}'
 
 // Result
 {
@@ -538,7 +538,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"net_peerCount","params":[],"id":74}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'
 
 // Result
 {
@@ -564,7 +564,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_protocolVersion","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_protocolVersion","params":[],"id":67}'
 
 // Result
 {
@@ -594,7 +594,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_syncing","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_syncing","params":[],"id":1}'
 
 // Result
 {
@@ -631,7 +631,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_coinbase","params":[],"id":64}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_coinbase","params":[],"id":64}'
 
 // Result
 {
@@ -657,7 +657,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_mining","params":[],"id":71}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_mining","params":[],"id":71}'
 
 // Result
 {
@@ -684,7 +684,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_hashrate","params":[],"id":71}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_hashrate","params":[],"id":71}'
 
 // Result
 {
@@ -711,7 +711,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_gasPrice","params":[],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_gasPrice","params":[],"id":73}'
 
 // Result
 {
@@ -738,7 +738,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_accounts","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_accounts","params":[],"id":1}'
 
 // Result
 {
@@ -764,7 +764,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_blockNumber","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_blockNumber","params":[],"id":1}'
 
 // Result
 {
@@ -801,7 +801,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}'
 
 // Result
 {
@@ -845,7 +845,7 @@ contract Storage {
 Retrieving the value of pos0 is straight forward:
 
 ```js
-curl -X POST --data '{"jsonrpc":"2.0", "mctxcod": "ctxc_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0", "method": "ctxc_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' localhost:8545
 
 {"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
 ```
@@ -868,7 +868,7 @@ undefined
 ```
 Now to fetch the storage:
 ```js
-curl -X POST --data '{"jsonrpc":"2.0", "mctxcod": "ctxc_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0", "method": "ctxc_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' localhost:8545
 
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000162e"}
 
@@ -902,7 +902,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}'
 
 // Result
 {
@@ -938,7 +938,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getBlockTransactionCountByHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getBlockTransactionCountByHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'
 
 // Result
 {
@@ -973,7 +973,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}'
 
 // Result
 {
@@ -1009,7 +1009,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getUncleCountByBlockHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getUncleCountByBlockHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'
 
 // Result
 {
@@ -1044,7 +1044,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getUncleCountByBlockNumber","params":["0xe8"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getUncleCountByBlockNumber","params":["0xe8"],"id":1}'
 
 // Result
 {
@@ -1082,7 +1082,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'
 
 // Result
 {
@@ -1096,7 +1096,7 @@ curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getCode","params":["0xa94f
 
 #### ctxc_sign
 
-The sign mctxcod calculates an Eth specific signature with: `sign(keccak256("\x19Eth Signed Message:\n" + len(message) + message)))`.
+The sign method calculates an Eth specific signature with: `sign(keccak256("\x19Eth Signed Message:\n" + len(message) + message)))`.
 
 By adding a prefix to the message makes the calculated signature recognisable as an Eth specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (e.g. transaction) and use the signature to impersonate the victim.
 
@@ -1116,7 +1116,7 @@ account, message
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}'
 
 // Result
 {
@@ -1142,7 +1142,7 @@ Creates new message call transaction or a contract creation, if the data field c
   - `gas`: `QUANTITY`  - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
   - `gasPrice`: `QUANTITY`  - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas
   - `value`: `QUANTITY`  - (optional) Integer of the value sent with this transaction
-  - `data`: `DATA`  - The compiled code of a contract OR the hash of the invoked mctxcod signature and encoded parameters. For details see [Eth Contract ABI](https://github.com/ctxc/wiki/wiki/Eth-Contract-ABI)
+  - `data`: `DATA`  - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see [Eth Contract ABI](https://github.com/ctxc/wiki/wiki/Eth-Contract-ABI)
   - `nonce`: `QUANTITY`  - (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.
 
 ##### Example Parameters
@@ -1166,7 +1166,7 @@ Use [ctxc_getTransactionReceipt](#ctxc_gettransactionreceipt) to get the contrac
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_sendTransaction","params":[{see above}],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_sendTransaction","params":[{see above}],"id":1}'
 
 // Result
 {
@@ -1200,7 +1200,7 @@ Use [ctxc_getTransactionReceipt](#ctxc_gettransactionreceipt) to get the contrac
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_sendRawTransaction","params":[{see above}],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_sendRawTransaction","params":[{see above}],"id":1}'
 
 // Result
 {
@@ -1225,7 +1225,7 @@ Executes a new message call immediately without creating a transaction on the bl
   - `gas`: `QUANTITY`  - (optional) Integer of the gas provided for the transaction execution. ctxc_call consumes zero gas, but this parameter may be needed by some executions.
   - `gasPrice`: `QUANTITY`  - (optional) Integer of the gasPrice used for each paid gas
   - `value`: `QUANTITY`  - (optional) Integer of the value sent with this transaction
-  - `data`: `DATA`  - (optional) Hash of the mctxcod signature and encoded parameters. For details see [Eth Contract ABI](https://github.com/ctxc/wiki/wiki/Eth-Contract-ABI)
+  - `data`: `DATA`  - (optional) Hash of the method signature and encoded parameters. For details see [Eth Contract ABI](https://github.com/ctxc/wiki/wiki/Eth-Contract-ABI)
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
 
 ##### Returns
@@ -1235,7 +1235,7 @@ Executes a new message call immediately without creating a transaction on the bl
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_call","params":[{see above}],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_call","params":[{see above}],"id":1}'
 
 // Result
 {
@@ -1262,7 +1262,7 @@ See [ctxc_call](#ctxc_call) parameters, expect that all properties are optional.
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_estimateGas","params":[{see above}],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_estimateGas","params":[{see above}],"id":1}'
 
 // Result
 {
@@ -1320,7 +1320,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getBlockByHash","params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getBlockByHash","params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true],"id":1}'
 
 // Result
 {
@@ -1375,7 +1375,7 @@ See [ctxc_getBlockByHash](#ctxc_getblockbyhash)
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getBlockByNumber","params":["0x1b4", true],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getBlockByNumber","params":["0x1b4", true],"id":1}'
 ```
 
 Result see [ctxc_getBlockByHash](#ctxc_getblockbyhash)
@@ -1420,7 +1420,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getTransactionByHash","params":["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getTransactionByHash","params":["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"],"id":1}'
 
 // Result
 {
@@ -1472,7 +1472,7 @@ See [ctxc_getTransactionByHash](#ctxc_gettransactionbyhash)
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getTransactionByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getTransactionByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'
 ```
 
 Result see [ctxc_getTransactionByHash](#ctxc_gettransactionbyhash)
@@ -1504,7 +1504,7 @@ See [ctxc_getTransactionByHash](#ctxc_gettransactionbyhash)
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getTransactionByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getTransactionByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'
 ```
 
 Result see [ctxc_getTransactionByHash](#ctxc_gettransactionbyhash)
@@ -1554,7 +1554,7 @@ It also returns _either_ :
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
 
 // Result
 {
@@ -1593,7 +1593,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_pendingTransactions","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_pendingTransactions","params":[],"id":1}'
 
 // Result
 {
@@ -1660,7 +1660,7 @@ See [ctxc_getBlockByHash](#ctxc_getblockbyhash)
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getUncleByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getUncleByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'
 ```
 
 Result see [ctxc_getBlockByHash](#ctxc_getblockbyhash)
@@ -1696,7 +1696,7 @@ See [ctxc_getBlockByHash](#ctxc_getblockbyhash)
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getUncleByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getUncleByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'
 ```
 
 Result see [ctxc_getBlockByHash](#ctxc_getblockbyhash)
@@ -1717,7 +1717,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getCompilers","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getCompilers","params":[],"id":1}'
 
 // Result
 {
@@ -1751,7 +1751,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_compileSolidity","params":["contract test { function multiply(uint a) returns(uint d) {   return a * 7;   } }"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_compileSolidity","params":["contract test { function multiply(uint a) returns(uint d) {   return a * 7;   } }"],"id":1}'
 
 // Result
 {
@@ -1784,10 +1784,10 @@ curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_compileSolidity","params":
           }
         ],
         "userDoc": {
-          "mctxcods": {}
+          "methods": {}
         },
         "developerDoc": {
-          "mctxcods": {}
+          "methods": {}
         }
       }
 
@@ -1818,7 +1818,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_compileLLL","params":["(returnlll (suicide (caller)))"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_compileLLL","params":["(returnlll (suicide (caller)))"],"id":1}'
 
 // Result
 {
@@ -1852,7 +1852,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_compileSerpent","params":["/* some serpent */"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_compileSerpent","params":["/* some serpent */"],"id":1}'
 
 // Result
 {
@@ -1902,7 +1902,7 @@ params: [{
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_newFilter","params":[{"topics":["0x0000000000000000000000000000000000000000000000000000000012341234"]}],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_newFilter","params":[{"topics":["0x0000000000000000000000000000000000000000000000000000000012341234"]}],"id":73}'
 
 // Result
 {
@@ -1929,7 +1929,7 @@ None
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_newBlockFilter","params":[],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_newBlockFilter","params":[],"id":73}'
 
 // Result
 {
@@ -1956,7 +1956,7 @@ None
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_newPendingTransactionFilter","params":[],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_newPendingTransactionFilter","params":[],"id":73}'
 
 // Result
 {
@@ -1992,7 +1992,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_uninstallFilter","params":["0xb"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_uninstallFilter","params":["0xb"],"id":73}'
 
 // Result
 {
@@ -2006,7 +2006,7 @@ curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_uninstallFilter","params":
 
 #### ctxc_getFilterChanges
 
-Polling mctxcod for a filter, which returns an array of logs which occurred since last poll.
+Polling method for a filter, which returns an array of logs which occurred since last poll.
 
 
 ##### Parameters
@@ -2041,7 +2041,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getFilterChanges","params":["0x16"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getFilterChanges","params":["0x16"],"id":73}'
 
 // Result
 {
@@ -2087,7 +2087,7 @@ See [ctxc_getFilterChanges](#ctxc_getfilterchanges)
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getFilterLogs","params":["0x16"],"id":74}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getFilterLogs","params":["0x16"],"id":74}'
 ```
 
 Result see [ctxc_getFilterChanges](#ctxc_getfilterchanges)
@@ -2121,7 +2121,7 @@ See [ctxc_getFilterChanges](#ctxc_getfilterchanges)
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}'
 ```
 
 Result see [ctxc_getFilterChanges](#ctxc_getfilterchanges)
@@ -2145,7 +2145,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getWork","params":[],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getWork","params":[],"id":73}'
 
 // Result
 {
@@ -2189,7 +2189,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0", "mctxcod":"ctxc_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0", "method":"ctxc_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":73}'
 
 // Result
 {
@@ -2227,7 +2227,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0", "mctxcod":"ctxc_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0", "method":"ctxc_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":73}'
 
 // Result
 {
@@ -2279,7 +2279,7 @@ Returns
 ##### getProof-Example
 ```
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"ctxc_getProof","params":["0x1234567890123456789012345678901234567890",["0x0000000000000000000000000000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000000000000000000000000001"],"latest"],"id":1}' -H "Content-type:application/json" http://localhost:8545
+curl -X POST --data '{"jsonrpc":"2.0","method":"ctxc_getProof","params":["0x1234567890123456789012345678901234567890",["0x0000000000000000000000000000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000000000000000000000000001"],"latest"],"id":1}' -H "Content-type:application/json" http://localhost:8545
 
 // Result
 {
@@ -2343,7 +2343,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"db_putString","params":["testDB","myKey","myString"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"db_putString","params":["testDB","myKey","myString"],"id":73}'
 
 // Result
 {
@@ -2382,7 +2382,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"db_getString","params":["testDB","myKey"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"db_getString","params":["testDB","myKey"],"id":73}'
 
 // Result
 {
@@ -2423,7 +2423,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"db_putHex","params":["testDB","myKey","0x68656c6c6f20776f726c64"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"db_putHex","params":["testDB","myKey","0x68656c6c6f20776f726c64"],"id":73}'
 
 // Result
 {
@@ -2463,7 +2463,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"db_getHex","params":["testDB","myKey"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"db_getHex","params":["testDB","myKey"],"id":73}'
 
 // Result
 {
@@ -2489,7 +2489,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_version","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_version","params":[],"id":67}'
 
 // Result
 {
@@ -2535,7 +2535,7 @@ params: [{
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_post","params":[{"from":"0xc931d93e97ab07fe42d923478ba2465f2..","topics": ["0x68656c6c6f20776f726c64"],"payload":"0x68656c6c6f20776f726c64","ttl":0x64,"priority":0x64}],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_post","params":[{"from":"0xc931d93e97ab07fe42d923478ba2465f2..","topics": ["0x68656c6c6f20776f726c64"],"payload":"0x68656c6c6f20776f726c64","ttl":0x64,"priority":0x64}],"id":73}'
 
 // Result
 {
@@ -2561,7 +2561,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_newIdentity","params":[],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_newIdentity","params":[],"id":73}'
 
 // Result
 {
@@ -2596,7 +2596,7 @@ params: [  "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_hasIdentity","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_hasIdentity","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'
 
 // Result
 {
@@ -2622,7 +2622,7 @@ none
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_newGroup","params":[],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_newGroup","params":[],"id":73}'
 
 // Result
 {
@@ -2655,7 +2655,7 @@ params: [ "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_addToGroup","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_addToGroup","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'
 
 // Result
 {
@@ -2696,7 +2696,7 @@ params: [{
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_newFilter","params":[{"topics": ['0x12341234bf4b564f'],"to": "0x2341234bf4b2341234bf4b564f..."}],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_newFilter","params":[{"topics": ['0x12341234bf4b564f'],"to": "0x2341234bf4b2341234bf4b564f..."}],"id":73}'
 
 // Result
 {
@@ -2732,7 +2732,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_uninstallFilter","params":["0x7"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_uninstallFilter","params":["0x7"],"id":73}'
 
 // Result
 {
@@ -2746,9 +2746,9 @@ curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_uninstallFilter","params":[
 
 #### shh_getFilterChanges
 
-Polling mctxcod for whisper filters. Returns new messages since the last call of this mctxcod.
+Polling method for whisper filters. Returns new messages since the last call of this method.
 
-**Note** calling the [shh_getMessages](#shh_getmessages) mctxcod, will reset the buffer for this mctxcod, so that you won't receive duplicate messages.
+**Note** calling the [shh_getMessages](#shh_getmessages) method, will reset the buffer for this method, so that you won't receive duplicate messages.
 
 
 ##### Parameters
@@ -2779,7 +2779,7 @@ params: [
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_getFilterChanges","params":["0x7"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_getFilterChanges","params":["0x7"],"id":73}'
 
 // Result
 {
@@ -2823,7 +2823,7 @@ See [shh_getFilterChanges](#shh_getfilterchanges)
 ##### Example
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","mctxcod":"shh_getMessages","params":["0x7"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_getMessages","params":["0x7"],"id":73}'
 ```
 
 Result see [shh_getFilterChanges](#shh_getfilterchanges)
