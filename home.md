@@ -247,7 +247,7 @@ Furthermore, we will closely collaborate with academia and industry for research
 
 ## JavaScript API
 
-<span style="color:red">To talk to an Cortex node from inside a JavaScript application use the [web3.js](https://github.com/ctxc/web3.js) library, which gives a convenient interface for the RPC mctxcods.</span>
+<span style="color:red">To talk to an Cortex node from inside a JavaScript application use the [web3.js](https://github.com/ctxc/web3.js) library, which gives a convenient interface for the RPC methods.</span>
 
 
 ## JSON-RPC Endpoint
