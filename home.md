@@ -193,7 +193,7 @@ WASM compatibility is not the focus of the Cortex MainNet, and WASM programming 
 
 ### Current exchanges that have completed the token swap for CTXCs?
 
-As of right now, Bitforex and OKex are the only two exchanges that have completed CTXC token swaps for their users, meaning that the addresses on these exchanges are MainNet addresses. Warning: DO NOT try to send ERC20 CTXCs into a Cortex MainNet address nor send MainNet CTXCs into an ERC20 (Eth) address. If you don’t understand what this means, please reach out to us and we can help explain further. Our suggestions is that if you hold ERC20 CTXCs (bought before the MainNet launch), you carry out a token swap following this guide <a href="https://medium.com/cortexlabs/cortex-mainnet-token-swap-announcement-c06769c40663">here</a>.
+As of right now, Binance, BitForex, BitAsset and OKex are the only four exchanges that have completed CTXC token swaps for their users, meaning that the addresses on these exchanges are MainNet addresses. Warning: DO NOT try to send ERC20 CTXCs into a Cortex MainNet address nor send MainNet CTXCs into an ERC20 (Eth) address. If you don’t understand what this means, please reach out to us and we can help explain further. Our suggestions is that if you hold ERC20 CTXCs (bought before the MainNet launch), you carry out a token swap following this guide <a href="https://medium.com/cortexlabs/cortex-mainnet-token-swap-announcement-c06769c40663">here</a>.
 
 ### How long does token swap last?
 At least a year.
