@@ -256,11 +256,7 @@ Default JSON-RPC endpoints:
 
 | Client | URL |
 |-------|:------------:|
-| C++ |  http://localhost:8545 | 
 | Go |http://localhost:8545 | 
-| Py | http://localhost:4000 | 
-| Parity | http://localhost:8545 | 
-| Pantheon | http://localhost:8545 |
 
 ### Go
 
@@ -283,31 +279,6 @@ build/bin/cortex --rpc --rpccorsdomain "http://localhost:3000"
 
 <span style="color:red">The JSON RPC can also be started from the [gctxc console](https://github.com/ctxc/go-ctxc/wiki/JavaScript-Console) using the `admin.startRPC(addr, port)` command.</span>
 
-
-### C++
-
-First start the node by running `alctxc` application:
-```bash
-build/alctxc/alctxc
-```
-
-Then start the JSON-RPC proxy (defaults to '~/.ctxc/gctxc.ipc' and 'http://127.0.0.1:8545'): 
-```bash
-scripts/jsonrpcproxy.py
-```
-
-If you use non-default IPC path or JSON-RPC options, you can specify  :
-```bash
-scripts/jsonrpcproxy.py <path to your node's gctxc.ipc> <URL for this proxy server>
-```
-
-
-### Python
-In python the JSONRPC server is currently started by default and listens on `127.0.0.1:4000`
-
-You can change the port and listen address by giving a config option. 
-
-`pyctxcapp -c jsonrpc.listen_port=4002 -c jsonrpc.listen_host=127.0.0.2 run`
 
 ## JSON-RPC support
 
