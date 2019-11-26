@@ -266,19 +266,19 @@ Default JSON-RPC endpoints:
 
 <span style="color:red">You can start the HTTP JSON-RPC with the `--rpc` flag </span>
 ```bash
-gctxc --rpc
+build/bin/cortex --rpc
 ```
 
 change the default port (8545) and listing address (localhost) with:
 
 ```bash
-gctxc --rpc --rpcaddr <ip> --rpcport <portnumber>
+build/bin/cortex --rpc --rpcaddr <ip> --rpcport <portnumber>
 ```
 
 If accessing the RPC from a browser, CORS will need to be enabled with the appropriate domain set. Otherwise, JavaScript calls are limit by the same-origin policy and requests will fail:
 
 ```bash
-gctxc --rpc --rpccorsdomain "http://localhost:3000"
+build/bin/cortex --rpc --rpccorsdomain "http://localhost:3000"
 ```
 
 <span style="color:red">The JSON RPC can also be started from the [gctxc console](https://github.com/ctxc/go-ctxc/wiki/JavaScript-Console) using the `admin.startRPC(addr, port)` command.</span>
