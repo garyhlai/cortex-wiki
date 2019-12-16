@@ -235,6 +235,14 @@ Furthermore, we will closely collaborate with academia and industry for research
 **Whitepaper:** https://www.cortexlabs.ai/Cortex_AI_on_Blockchain_EN.pdf
 **Cortex Forum:** https://www.cortexlabs.ai/forum
 
+**Medium:** https://medium.com/cortexlabs
+**Website:** https://www.cortexlabs.ai
+**Twitter:** https://twitter.com/CTXCBlockchain
+**Github:** https://github.com/CortexFoundation
+**Facebook:** https://www.facebook.com/CTXCBlockchain/
+**Reddit:** https://www.reddit.com/r/Cortex_Official/
+
+
 # Technical Documentations
 **MainNet Github Repo:** https://github.com/CortexFoundation/CortexTheseus
 
