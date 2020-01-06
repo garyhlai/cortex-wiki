@@ -1,3 +1,5 @@
+IDE link: cerebro.cortexlabs.ai/remix/
+
 # Cortex AI Smart Contract Guide
 
 Cortex is the first and currently the only public blockchain capable of executing on-chain AI. This tutorial will lead you through the process of deploying a simple “Hello World” AI Dapp. If you prefer to learn by reading the formal documentation, click here (https://github.com/CortexFoundation/tech-doc).
@@ -138,7 +140,24 @@ where [ row1 ] looks like [ [col1],[col2],[col3],[col4]...[col32]] and within ea
 ### Questions
 
 - Big endian vs. Little endian handling in currentInferResult. How to adapt it for other input size?
+
 - Can the model handle other image dimensions? How/Where exactly can we get the pixel matrix of an image?
-- NewDigitRecognitionInferView ?
+
+- NewDigitRecognitionInferView vs. NewDigitRecognitionInfer?
+
+This is what allows your users to call your model and recognize the digit in their input image. There are two types of calls in blockchain: transaction or call. The former changes the state of the blockchain is verified by network consensus (all computers in the network verifies the change to the state). The latter doesn't change the state of the blockchain; instead, it simply returns you the result of the program as executed by a nearby computer in the network. NewDigitRecognitionInferView is the latter whereas NewDigitRecognitionInfer is the former. If you want your call to the program to be recorded on the blockchain, you should use NewDigitRecognitionInfer; otherwise, you should just use NewDigitRecognitionInferView.
+
 - User need to call the function from remix.
-- Need two things now: 1. how to deploy this contract to testnet and then call it from remix. 2. How to move it to MainNet
+
+To deploy this contract
+
+Open remix, activate the two modules on the side.
+
+To call this contract, click on the buttons on the left
+
+Three things left now:
+
+\*1. How can users (someone other than the owner of the contract) call this function from remix?
+
+2. Can we take user input image? (Fix the compiler) Where can we get such input image? Can we use input image of other dimensions?
+3. How to move it to MainNet?
