@@ -8,10 +8,19 @@ Prerequsite:
 
 - Chrome Browser
 - Cortex Wallet Chrome Extension (Follow this guide to install it: https://github.com/CortexFoundation/Cortex_Release/tree/master/cortex-wallet if you haven't done so)
+- Some Cortex TestNet tokens (from faucet or from ERC20 exchanges)
+
+First make sure from your Cortex wallet that you are on the TestNet. Click on the Cortex wallet extension, enter your password, and at the top of your wallet, you should see:
+
+![wallet top](imgs/wallet_top.png)
+
+If you don't see this yet, click on the dropdown arrow and switch to the Dolores TestNet. (You may need to refresh and then repeat the steps above after this)
+
+## Get Started
 
 Here's the overall code we're going to write - always refer back to it if you get lost. We will go over it step-by-step next.
 
-## Overall code
+### Overall code
 
 ```javascript
 pragma solidity ^0.4.18;
@@ -66,7 +75,7 @@ contract Infer {
 
 ```
 
-## Get Started
+### Code Walkthrough
 
 Now, let's open Remix (link: cerebro.cortexlabs.ai/remix/), the official Cortex IDE, where you can write and later deploy this contract. (You could also write the code in another IDE if you prefer and later paste the code into Remix).
 
@@ -124,7 +133,11 @@ We first need to compile this contract. So click ![the double arrows](imgs/doubl
 
 ## Deploy the Contracts
 
-Now let's deploy this contract to the TestNet. First make sure your Cortex wallet is on a TestNet.
+Now let's deploy this contract to the TestNet. You may leave everything as default and click on "confirm". A wallet window should pop up asking you to confirm the transaction like the one below. Review the details and then click "confirm" again.
+
+![confirmation](imgs/confirmation.png)
+
+After a few minutes, your contract should have been successfully deployed and show up under the "Deployed Contracts" section! Click on the dropdown menus and you will see all the functions that you can call.
 
 ---
 
@@ -175,3 +188,5 @@ Three things left now:
 2. Can we take user input image/ parameters? (Fix the compiler) Can we do InferView function? Where can we get such input image? Can we use input image of other dimensions?
 
 3. How to move it to MainNet?
+
+4. Are we gonna have TestNet faucets? When?
