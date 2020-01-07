@@ -1,14 +1,17 @@
-IDE link: cerebro.cortexlabs.ai/remix/
-
 # Cortex AI Smart Contract Guide
 
 Cortex is the first and currently the only public blockchain capable of executing on-chain AI. This tutorial will lead you through the process of deploying a simple “Hello World” AI Dapp. If you prefer to learn by reading the formal documentation, click here (https://github.com/CortexFoundation/tech-doc).
 
 By the end of this tutorial, you will have learned how to write a simple handwritten digit recognition AI DApp that takes an input image from the user and tells which digit (0-9) is in the image by calling an on-chain AI model on Cortex.
 
+Prerequsite:
+
+- Chrome Browser
+- Cortex Wallet Chrome Extension (Follow this guide to install it: https://github.com/CortexFoundation/Cortex_Release/tree/master/cortex-wallet if you haven't done so)
+
 Here's the overall code we're going to write - always refer back to it if you get lost. We will go over it step-by-step next.
 
-### Overall code
+## Overall code
 
 ```javascript
 pragma solidity ^0.4.18;
@@ -63,7 +66,11 @@ contract Infer {
 
 ```
 
-Let's begin to walk through the code step-by-step. Pay close attention to the comments.
+## Get Started
+
+Now, let's open Remix (link: cerebro.cortexlabs.ai/remix/), the official Cortex IDE, where you can write and later deploy this contract. (You could also write the code in another IDE if you prefer and later paste the code into Remix).
+
+We will now walk through the code step-by-step. Pay close attention to the comments.
 
 ### Create a contract
 
@@ -105,9 +112,23 @@ Pay attention. This is the most important function in this contract. It takes an
 
 And we're done! You can deploy this contract to the TestNet and then use it to recognize a handwritten digit now!
 
-Notice we did not go over the _GenerateRandomInput()_ and _DigitRecognitionInfer()_ funcitons, because they are not essential. All you need to know is that _GenerateRandomInput()_ will randomly generate an input image and store it in the variable _input_data_ and _DigitRecognitionInfer()_ will call the AI model to recognize which digit is in that randomly generated input image. Not too useful but you can use them to test whether your contract is working properly.
+Note: Notice we did not go over the _GenerateRandomInput()_ and _DigitRecognitionInfer()_ funcitons, because they are not essential. All you need to know is that _GenerateRandomInput()_ will randomly generate an input image and store it in the variable _input_data_ and _DigitRecognitionInfer()_ will call the AI model to recognize which digit is in that randomly generated input image. Not too useful but you can use them to test whether your contract is working properly.
 
-### Fotenotes: image dimension
+## Compile the Contract
+
+To compile this contract from Remix (link again: cerebro.cortexlabs.ai/remix/), first click on ![the plug](imgs/plug.png) on the left side of the page.
+
+Then activate the two modules: "Deploy And Run Transactions" and "Solidity Compiler".
+
+We first need to compile this contract. So click ![the double arrows](imgs/double_arrow.png) on the left. Then click "compile" to compile your contract. Once you have compiled successfully, the icon on the left should look like this: ![compile success](imgs/compiled.png)
+
+## Deploy the Contracts
+
+Now let's deploy this contract to the TestNet. First make sure your Cortex wallet is on a TestNet.
+
+---
+
+### FAQs
 
 **Question:** Why is the image 1 x 3 x 32 x 32 ?
 
@@ -137,7 +158,7 @@ where [ row1 ] looks like [ [col1],[col2],[col3],[col4]...[col32]] and within ea
 
 ---
 
-### Questions
+### To-dos
 
 - Big endian vs. Little endian handling in currentInferResult. How to adapt it for other input size?
 
@@ -147,17 +168,10 @@ where [ row1 ] looks like [ [col1],[col2],[col3],[col4]...[col32]] and within ea
 
 This is what allows your users to call your model and recognize the digit in their input image. There are two types of calls in blockchain: transaction or call. The former changes the state of the blockchain is verified by network consensus (all computers in the network verifies the change to the state). The latter doesn't change the state of the blockchain; instead, it simply returns you the result of the program as executed by a nearby computer in the network. NewDigitRecognitionInferView is the latter whereas NewDigitRecognitionInfer is the former. If you want your call to the program to be recorded on the blockchain, you should use NewDigitRecognitionInfer; otherwise, you should just use NewDigitRecognitionInferView.
 
-- User need to call the function from remix.
-
-To deploy this contract
-
-Open remix, activate the two modules on the side.
-
-To call this contract, click on the buttons on the left
-
 Three things left now:
 
-\*1. How can users (someone other than the owner of the contract) call this function from remix?
+1. How can users (someone other than the owner of the contract) call this function from remix?
 
-2. Can we take user input image? (Fix the compiler) Where can we get such input image? Can we use input image of other dimensions?
+2. Can we take user input image/ parameters? (Fix the compiler) Can we do InferView function? Where can we get such input image? Can we use input image of other dimensions?
+
 3. How to move it to MainNet?
