@@ -133,11 +133,53 @@ We first need to compile this contract. So click ![the double arrows](imgs/doubl
 
 ## Deploy the Contracts
 
-Now let's deploy this contract to the TestNet. You may leave everything as default and click on "confirm". A wallet window should pop up asking you to confirm the transaction like the one below. Review the details and then click "confirm" again.
+Now let's deploy this contract to the TestNet. You may leave everything as default and click on "confirm". (You should see your account filled in automatically; if not, you may need to log into your wallet, reload the page of repeat the steps above again) A wallet window should pop up asking you to confirm the transaction like the one below. Review the details and then click "confirm" again.
 
 ![confirmation](imgs/confirmation.png)
 
 After a few minutes, your contract should have been successfully deployed and show up under the "Deployed Contracts" section! Click on the dropdown menus and you will see all the functions that you can call.
+
+At this stage, you're pretty much done: you can click GenerateRandomInput to generate a random input and then click DigitRecognitionInfer to determine what digit the randomly generated input is. We have walked through the entire workflow of developing on Cortex.
+
+However, this is boring because we can't even take custom image. So for the sake of completeness (and fun), we will go on to show how to take user input, which involves writing a Python script!
+
+---
+
+## Taking User Input
+
+Use this Python script to convert your image into an array of supported size.
+
+Open Terminal, first run
+
+```Python
+pip3 install Pillow
+```
+
+```Python
+import sys
+from PIL import Image
+
+img = Image.open(sys.argv[1])
+img = img.resize((32,32))
+img = img.load()
+
+h = '0123456789abcdef'
+s = ''
+for i in range(32):
+    for j in range(32):
+        for k in img[i, j]:
+            s += h[k // 16] + h[k % 16]
+ret = []
+for i in range(0, len(s), 64):
+    if i + 64 <= len(s):
+        ret.append('0x' + s[i:i+64])
+    else:
+        ret.append('0x' + '0' * (len(s) - i + 64) + s[i:])
+
+print(ret)
+
+
+```
 
 ---
 
@@ -181,12 +223,18 @@ where [ row1 ] looks like [ [col1],[col2],[col3],[col4]...[col32]] and within ea
 
 This is what allows your users to call your model and recognize the digit in their input image. There are two types of calls in blockchain: transaction or call. The former changes the state of the blockchain is verified by network consensus (all computers in the network verifies the change to the state). The latter doesn't change the state of the blockchain; instead, it simply returns you the result of the program as executed by a nearby computer in the network. NewDigitRecognitionInferView is the latter whereas NewDigitRecognitionInfer is the former. If you want your call to the program to be recorded on the blockchain, you should use NewDigitRecognitionInfer; otherwise, you should just use NewDigitRecognitionInferView.
 
-Three things left now:
+Four things left now:
 
 1. How can users (someone other than the owner of the contract) call this function from remix?
 
-2. Can we take user input image/ parameters? (Fix the compiler) Can we do InferView function? Where can we get such input image? Can we use input image of other dimensions?
+On the Deploy page, click on "At Address" and load the contract address that you (the user) wish to call.
+
+2. Can we take user input image/ parameters? (Fix the compiler) Right now SetInput has bug: error encoding arguments syntraxerror: unexpected token ' array
 
 3. How to move it to MainNet?
 
+Simply switch to MainNet in your wallet.
+
 4. Are we gonna have TestNet faucets? When?
+
+Soon. (After Chinese New Year)
