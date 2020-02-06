@@ -95,6 +95,17 @@ contract Infer {
     uint256 public currentInferResult;
 ```
 
+### Write the function to take user input
+
+```javascript
+ // If we want to input custom user image, we input it as the "data" argument in this function
+    function SetInput(uint256[] data) public {
+        for(uint i = 1; i < input_data.length; ++i) {
+          input_data[i] = data[i];
+        }
+    }
+```
+
 ### Write the main function to call the AI model
 
 Pay attention. This is the most important function in this contract. It takes an input image array of dimension 1 x 3 x 32 x 32 and return a number from 0-9 as the output, telling you which digit is in the image.
@@ -105,7 +116,7 @@ Pay attention. This is the most important function in this contract. It takes an
 
         // initialize variable
         uint256[] memory output = new uint256[](1);
-        // inferArray is a built-in function in CVM, it takes the input "input_data", feed it to this model at "modelAddr" and store the inference result in "output", which you just initialized above and pass in as a placeholder here
+        // inferArray is a built-in function in CVM, it takes the input "input_data" (which we have set from either the SetInput or GenerateRandomInput function), feed it to this model at "modelAddr" and store the inference result in "output", which you just initialized above and pass in as a placeholder here
         inferArray(modelAddr, input_data, output);
 
         // These two lines below will convert the output into a digit between 0-9 and store it in "currentInferResult". (The conversion has to do with big endian vs. little endian under the hood)
@@ -113,8 +124,6 @@ Pay attention. This is the most important function in this contract. It takes an
         currentInferResult = currentInferResult % 10;
     }
 ```
-
-And we're done! You can deploy this contract to the TestNet and then use it to recognize a handwritten digit now!
 
 Note: Notice we did not go over the _GenerateRandomInput()_ and _DigitRecognitionInfer()_ funcitons, because they are not essential. All you need to know is that _GenerateRandomInput()_ will randomly generate an input image and store it in the variable _input_data_ and _DigitRecognitionInfer()_ will call the AI model to recognize which digit is in that randomly generated input image. Not too useful, since most of the time we will be taking custom user input as opposed to randomly generated image, but you can use them to test whether your contract is working properly.
 
@@ -132,23 +141,25 @@ Now let's deploy this contract to the TestNet. You may leave everything as defau
 
 ![confirmation](imgs/confirmation.png)
 
-After a few minutes, your contract should have been successfully deployed and show up under the "Deployed Contracts" section! Click on the dropdown menus and you will see all the functions that you can call.
+After a few minutes, your contract should have been successfully deployed and show up under the "Deployed Contracts" section! Click on the dropdown menus and you will see all the functions that you can call. Click on the clipboard and you will see the address of your contract. Make sure you save this address somewhere so that you know where your contract was deployed.
 
 At this stage, you're pretty much done: you can click GenerateRandomInput to generate a random input and then click DigitRecognitionInfer to determine what digit the randomly generated input is. We have walked through the entire workflow of developing on Cortex.
 
-However, this is boring because we can't even take custom image. So for the sake of completeness (and fun), we will go on to show how to take user input, which involves writing a Python script!
+However, running the program on randomly generated input images is boring. So for the sake of completeness (and fun), we will go on to show how to take user input, which involves writing a Python script!
 
 ---
 
 ## Taking User Input
 
-Use this Python script to convert your image into an array of supported size.
+Use this Python script to convert your custom image into an array of supported size.
 
 Open Terminal, first run
 
 ```Python
 pip3 install Pillow
 ```
+
+Start a Python file, and let's name it "convert.py", which will take your custom image as an input and output an array of pixel values with dimensions compatible with our contract above! Make sure you put your custom image in the same directory as this script.
 
 ```Python
 import sys
@@ -172,17 +183,35 @@ for i in range(0, len(s), 64):
         ret.append('0x' + '0' * (len(s) - i + 64) + s[i:])
 
 print(ret)
-
-
 ```
+
+At runtime, run
+
+```Python
+python3 convert.py your_img_name.jpg
+```
+
+Replace your_img_name with your actual image name!
+
+If everything goes well, Terminal should output an array of pixel values which you can copy.
+
+## Running the Contract on Custom Image
+
+Now let's go back to Remix to infer the contract.
+
+From ![atAddress](imgs/atAddress.png) , type in your contract address and then click the button to load your contract. Now click on the dropdown arrow and you can see the list of callable functions in the contract. Paste your custom image input into SetInput and then click the button.
+
+Finally, click on DigitRecognitionInfer. Your final inference result should now be stored in currentInferResult!
+
+Congratulations! You are now one of the first people on earth to have successfully written, compiled, deployed and executed an AI DApp. If you have any questions, feel free to reach out to the Cortex team. Join our Telegram group at https://t.me/CortexOfficialENOF
 
 ---
 
 ### FAQs
 
-**Question:** Why is the image 1 x 3 x 32 x 32 ?
+**Question 1:** Why is the image 1 x 3 x 32 x 32 ?
 
-**Answer:**
+**Answer 1:**
 
 1: 1 image
 
@@ -206,26 +235,16 @@ green [ [ row1 ],[ row2 ],[ row3 ],[ row4 ]... [ row32 ] ]
 
 where [ row1 ] looks like [ [col1],[col2],[col3],[col4]...[col32]] and within each of [col1] lives a value from 0-255, indicating how much red/green/blue it has in that pixel.
 
+**Question 2:** How do I deploy my contract to MainNet?
+
+**Answer 2:** Simply switch to MainNet in your Cortex wallet and repeat all steps from above!
+
 ---
 
 ### To-dos
 
-- Big endian vs. Little endian handling in currentInferResult. How to adapt it for other input size?
+1.  Right now SetInput has bug: error encoding arguments syntraxerror: unexpected token ' array
 
-- Can the model handle other image dimensions? How/Where exactly can we get the pixel matrix of an image?
-
-Four things left now:
-
-1. How can users (someone other than the owner of the contract) call this function from remix?
-
-On the Deploy page, click on "At Address" and load the contract address that you (the user) wish to call.
-
-2. Can we take user input image/ parameters? (Fix the compiler) Right now SetInput has bug: error encoding arguments syntraxerror: unexpected token ' array
-
-3. How to move it to MainNet?
-
-Simply switch to MainNet in your wallet.
-
-4. Are we gonna have TestNet faucets? When?
+2.  Are we gonna have TestNet faucets? When?
 
 Soon. (After Chinese New Year)
