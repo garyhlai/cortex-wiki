@@ -7,7 +7,7 @@ By the end of this tutorial, you will have learned how to write a simple handwri
 Prerequsite:
 
 - Chrome Browser
-- Cortex Wallet Chrome Extension (Follow this guide to install it: https://github.com/CortexFoundation/Cortex_Release/tree/master/cortex-wallet if you haven't done so)
+- Cortex Wallet Chrome Extension (Follow this guide to install it: https://github.com/CortexFoundation/Cortex_Release/tree/master/cortex-wallet if you have not done so)
 - Some Cortex TestNet tokens (from faucet or from ERC20 exchanges)
 
 First make sure from your Cortex wallet that you are on the TestNet. Click on the Cortex wallet extension, enter your password, and at the top of your wallet, you should see:
@@ -46,6 +46,14 @@ contract Infer {
           input_data[i] = uint(sha256(input_data[i - 1]));
         }
     }
+
+    // set input_data in the contract as the user input, which we pass into the function as an argument
+    function SetInput(uint256[] data) public {
+        for(uint i = 1; i < input_data.length; ++i) {
+          input_data[i] = data[i];
+        }
+    }
+
     // recognize digit using randomly generated input image
    function DigitRecognitionInfer() public {
         uint256[] memory output = new uint256[](1);
@@ -54,21 +62,6 @@ contract Infer {
         currentInferResult = currentInferResult % 10;
     }
 
-    // recognize digit using user input image
-   function NewDigitRecognitionInfer(uint256[] imgData) public {
-        uint256[] memory output = new uint256[](1);
-        inferArray(modelAddr, imgData, output);
-        currentInferResult = (output[0] >> (256 - 32)) & ((1 << 32) - 1);
-        currentInferResult = currentInferResult % 10;
-    }
-
-    function NewDigitRecognitionInferView(uint256[] imgData) uint256 public view {
-        uint256[] memory output = new uint256[](1);
-        inferArray(modelAddr, imgData, output);
-        ret = (output[0] >> (256 - 32)) & ((1 << 32) - 1);
-        ret = ret % 10;
-        return ret;
-    }
 
 }
 
@@ -77,7 +70,7 @@ contract Infer {
 
 ### Code Walkthrough
 
-Now, let's open Remix (link: cerebro.cortexlabs.ai/remix/), the official Cortex IDE, where you can write and later deploy this contract. (You could also write the code in another IDE if you prefer and later paste the code into Remix).
+Now, let's open Remix (link: cerebro.cortexlabs.ai/remix/), the official Cortex IDE, where you can write and later deploy this contract. (You could also write the code in another IDE if you prefer and paste the code into Remix later).
 
 We will now walk through the code step-by-step. Pay close attention to the comments.
 
@@ -108,10 +101,12 @@ Pay attention. This is the most important function in this contract. It takes an
 
 ```javascript
     // recognize digit using user input image
-   function NewDigitRecognitionInfer(uint256[] imgData) public {
+    function DigitRecognitionInfer() public {
+
+        // initialize variable
         uint256[] memory output = new uint256[](1);
-        // inferArray is a built-in function in CVM, it takes the input "imgData", feed it to this model at "modelAddr" and store the inference result in "output", which you pass in as a placeholder at first
-        inferArray(modelAddr, imgData, output);
+        // inferArray is a built-in function in CVM, it takes the input "input_data", feed it to this model at "modelAddr" and store the inference result in "output", which you just initialized above and pass in as a placeholder here
+        inferArray(modelAddr, input_data, output);
 
         // These two lines below will convert the output into a digit between 0-9 and store it in "currentInferResult". (The conversion has to do with big endian vs. little endian under the hood)
         currentInferResult = (output[0] >> (256 - 32)) & ((1 << 32) - 1);
@@ -121,7 +116,7 @@ Pay attention. This is the most important function in this contract. It takes an
 
 And we're done! You can deploy this contract to the TestNet and then use it to recognize a handwritten digit now!
 
-Note: Notice we did not go over the _GenerateRandomInput()_ and _DigitRecognitionInfer()_ funcitons, because they are not essential. All you need to know is that _GenerateRandomInput()_ will randomly generate an input image and store it in the variable _input_data_ and _DigitRecognitionInfer()_ will call the AI model to recognize which digit is in that randomly generated input image. Not too useful but you can use them to test whether your contract is working properly.
+Note: Notice we did not go over the _GenerateRandomInput()_ and _DigitRecognitionInfer()_ funcitons, because they are not essential. All you need to know is that _GenerateRandomInput()_ will randomly generate an input image and store it in the variable _input_data_ and _DigitRecognitionInfer()_ will call the AI model to recognize which digit is in that randomly generated input image. Not too useful, since most of the time we will be taking custom user input as opposed to randomly generated image, but you can use them to test whether your contract is working properly.
 
 ## Compile the Contract
 
@@ -133,7 +128,7 @@ We first need to compile this contract. So click ![the double arrows](imgs/doubl
 
 ## Deploy the Contracts
 
-Now let's deploy this contract to the TestNet. You may leave everything as default and click on "confirm". (You should see your account filled in automatically; if not, you may need to log into your wallet, reload the page of repeat the steps above again) A wallet window should pop up asking you to confirm the transaction like the one below. Review the details and then click "confirm" again.
+Now let's deploy this contract to the TestNet. You may leave everything as default and click on "confirm". (You should see your account filled in automatically; if not, you may need to log into your wallet, reload the page, and repeat the steps above again) A wallet window should pop up asking you to confirm the transaction like the one below. Review the details and then click "confirm" again.
 
 ![confirmation](imgs/confirmation.png)
 
@@ -218,10 +213,6 @@ where [ row1 ] looks like [ [col1],[col2],[col3],[col4]...[col32]] and within ea
 - Big endian vs. Little endian handling in currentInferResult. How to adapt it for other input size?
 
 - Can the model handle other image dimensions? How/Where exactly can we get the pixel matrix of an image?
-
-- NewDigitRecognitionInferView vs. NewDigitRecognitionInfer?
-
-This is what allows your users to call your model and recognize the digit in their input image. There are two types of calls in blockchain: transaction or call. The former changes the state of the blockchain is verified by network consensus (all computers in the network verifies the change to the state). The latter doesn't change the state of the blockchain; instead, it simply returns you the result of the program as executed by a nearby computer in the network. NewDigitRecognitionInferView is the latter whereas NewDigitRecognitionInfer is the former. If you want your call to the program to be recorded on the blockchain, you should use NewDigitRecognitionInfer; otherwise, you should just use NewDigitRecognitionInferView.
 
 Four things left now:
 
