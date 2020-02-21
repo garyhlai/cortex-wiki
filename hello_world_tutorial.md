@@ -49,7 +49,7 @@ contract Infer {
 
     // set input_data in the contract as the user input, which we pass into the function as an argument
     function SetInput(uint256[] data) public {
-        for(uint i = 1; i < input_data.length; ++i) {
+        for(uint i = 0; i < input_data.length; ++i) {
           input_data[i] = data[i];
         }
     }
@@ -100,7 +100,7 @@ contract Infer {
 ```javascript
  // If we want to input custom user image, we input it as the "data" argument in this function
     function SetInput(uint256[] data) public {
-        for(uint i = 1; i < input_data.length; ++i) {
+        for(uint i = 0; i < input_data.length; ++i) {
           input_data[i] = data[i];
         }
     }
@@ -137,13 +137,21 @@ We first need to compile this contract. So click ![the double arrows](imgs/doubl
 
 ## Deploy the Contracts
 
-Now let's deploy this contract to the TestNet. You may leave everything as default and click on "confirm". (You should see your account filled in automatically; if not, you may need to log into your wallet, reload the page, and repeat the steps above again) A wallet window should pop up asking you to confirm the transaction like the one below. Review the details and then click "confirm" again.
+Now let's deploy this contract to the TestNet.
+
+Click on the Cortex logo ![cortexlogo](imgs/cortexlogo.png) on the left to go to the Deploy tab.
+
+Now if a window does not pop up, click on your Cortex wallet on the top right corner to see the transaction window. You may leave everything as default and click on "confirm". (You should see your account filled in automatically; if not, you may need to log into your wallet first and reload) A wallet window should pop up asking you to confirm the transaction like the one below. Review the details and then click "confirm" again.
 
 ![confirmation](imgs/confirmation.png)
 
-After a few minutes, your contract should have been successfully deployed and show up under the "Deployed Contracts" section! Click on the dropdown menus and you will see all the functions that you can call. Click on the clipboard and you will see the address of your contract. Make sure you save this address somewhere so that you know where your contract was deployed.
+After a few minutes, your contract should have been successfully deployed and show up under the "Deployed Contracts" section!
 
-At this stage, you're pretty much done: you can click GenerateRandomInput to generate a random input and then click DigitRecognitionInfer to determine what digit the randomly generated input is. We have walked through the entire workflow of developing on Cortex.
+Click on the dropdown menus and you will see all the functions that you can call. Click on the clipboard and you will see the address of your contract. Make sure you save this address somewhere so that you know where your contract was deployed.
+
+At this stage, you're pretty much done: you can click GenerateRandomInput to generate a random input (remember to always go to your Cortex wallet to confirm function calls) and then click DigitRecognitionInfer to determine what digit the randomly generated input is. If you click on currentInferResult, you will see something like "0: uint256: number", where number is your infer result.
+
+We have now finished walking through the entire workflow of developing on Cortex.
 
 However, running the program on randomly generated input images is boring. So for the sake of completeness (and fun), we will go on to show how to take user input, which involves writing a Python script!
 
@@ -245,6 +253,4 @@ where [ row1 ] looks like [ [col1],[col2],[col3],[col4]...[col32]] and within ea
 
 1.  Right now SetInput has bug: error encoding arguments syntraxerror: unexpected token ' array
 
-2.  Are we gonna have TestNet faucets? When?
-
-Soon. (After Chinese New Year)
+2.  TestNet faucets?
