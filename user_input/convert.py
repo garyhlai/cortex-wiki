@@ -2,7 +2,7 @@ import sys
 from PIL import Image
 
 img = Image.open(sys.argv[1])
-img = img.resize((32,32))
+img = img.resize((32, 32))
 img = img.load()
 
 h = '0123456789abcdef'
@@ -18,4 +18,4 @@ for i in range(0, len(s), 64):
     else:
         ret.append('0x' + '0' * (len(s) - i + 64) + s[i:])
 
-print(ret)
+print('[' + ','.join(['"' + x + '"' for x in ret]) + ']')
