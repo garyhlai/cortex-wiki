@@ -201,9 +201,9 @@ python3 convert.py your_img_name.jpg
 
 Replace your_img_name with your actual image name!
 
-If everything goes well, Terminal should output an array of pixel values which you can copy. For an image like this:
+If everything goes well, Terminal should output an array of pixel values which you can copy. For an image like this (if you need more test images, here's a wonderful image dataset on Kaggle https://www.kaggle.com/scolianni/mnistasjpg):
 
-![4](imgs/digit.png)
+<img src="imgs/digit3.png" alt="drawing" width="200"/>
 
 The Python program should return an array like this:
 

@@ -2,17 +2,18 @@ import sys
 from PIL import Image
 
 img = Image.open(sys.argv[1])
-img = img.resize((28, 28))
+img = img.resize((28,28))
 img = img.load()
 
 h = '0123456789abcdef'
 s = ''
 for i in range(28):
     for j in range(28):
-        t = 0
-        for k in img[i, j]:
-            t += k
-        t //= len(img[i, j])
+        #t = 0
+        #for k in img[i, j]:
+        #    t += k
+        #t //= len(img[i, j])
+        t = img[i, j]
         s += h[t // 16] + h[t % 16]
 ret = []
 for i in range(0, len(s), 64):
