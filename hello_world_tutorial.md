@@ -35,8 +35,10 @@ contract Infer {
     uint256 public currentInferResult;
 
     constructor() public {
-        // Here we define the dimension of the input_data. To feed an image input of dimension 1 * 3 * 32 * 32 into the model, we need 1 * 3 * 32 * 32 bytes. Now, each uint256 in Solidity is 32 bytes. That's why we need divide 1 * 3 * 32 * 32 by 32 and round up. To express this division in Solidity, we write (1 * 3 * 32 * 32 + 31) >> 5, where >> 5 means divide by 2^5 and adding the 31 allows us to effectively round up.
-        input_data = new uint256[]((1 * 3 * 32 * 32 + 31) >> 5);
+        // Here we define the dimension of the input_data. To feed an image input of dimension 1 * 1 * 28 * 28 into the model, we need 1 * 1 * 28 * 28 bytes.
+        // Now, each uint256 in Solidity is 32 bytes. That's why we need divide 1 * 1 * 28 * 28 by 32 and round up.
+        // To express this division in Solidity, we write (1 * 1 * 28 * 28 + 31) >> 5, where >> 5 means divide by 2^5 and adding the 31 allows us to effectively round up.
+        input_data = new uint256[]((1 * 1 * 28 * 28 + 31) >> 5);
     }
 
     // you can choose to randomly generate input as opposed to taking the input image from the user
@@ -49,20 +51,18 @@ contract Infer {
 
     // set input_data in the contract as the user input, which we pass into the function as an argument
     function SetInput(uint256[] data) public {
-        for(uint i = 0; i < input_data.length; ++i) {
+        for(uint i = 1; i < input_data.length; ++i) {
           input_data[i] = data[i];
         }
     }
 
     // recognize digit using randomly generated input image
    function DigitRecognitionInfer() public {
-        uint256[] memory output = new uint256[](1);
+        uint256[] memory output = new uint256[](uint256(1));
         inferArray(modelAddr, input_data, output);
         currentInferResult = (output[0] >> (256 - 32)) & ((1 << 32) - 1);
         currentInferResult = currentInferResult % 10;
     }
-
-
 }
 
 
@@ -100,7 +100,7 @@ contract Infer {
 ```javascript
  // If we want to input custom user image, we input it as the "data" argument in this function
     function SetInput(uint256[] data) public {
-        for(uint i = 0; i < input_data.length; ++i) {
+        for(uint i = 1; i < input_data.length; ++i) {
           input_data[i] = data[i];
         }
     }
@@ -174,24 +174,38 @@ import sys
 from PIL import Image
 
 img = Image.open(sys.argv[1])
-img = img.resize((32,32))
+img = img.resize((28,28))
 img = img.load()
 
 h = '0123456789abcdef'
 s = ''
-for i in range(32):
-    for j in range(32):
-        for k in img[i, j]:
-            s += h[k // 16] + h[k % 16]
+for i in range(28):
+    for j in range(28):
+        t = 0
+        if type(img[j, i]) is int:
+            t = img[j, i] // 2
+        else:
+            for k in img[j, i]:
+                t += k
+            t //= len(img[j, i]) * 2
+        s += h[t // 16] + h[t % 16]
 ret = []
 for i in range(0, len(s), 64):
-    if i + 64 <= len(s):
-        ret.append('0x' + s[i:i+64])
+    if i <= len(s):
+        e = i+64
+        if e > len(s):
+            e = len(s)
+        subs = s[i:e]
+        if len(subs) < 64:
+            subs = subs + '0' * (64 - len(subs))
+        ret.append('0x' + subs)
     else:
         ret.append('0x' + '0' * (len(s) - i + 64) + s[i:])
 
 print('[' + ','.join(['"' + x + '"' for x in ret]) + ']')
 ```
+
+Caveat: this python script above only works for MNIST test set - if you want to get the pixel value of your custom images, you may need to modify it accordingly.
 
 At runtime, run
 
@@ -201,21 +215,31 @@ python3 convert.py your_img_name.jpg
 
 Replace your_img_name with your actual image name!
 
-If everything goes well, Terminal should output an array of pixel values which you can copy. For an image like this (if you need more test images, here's a wonderful image dataset on Kaggle https://www.kaggle.com/scolianni/mnistasjpg):
+If everything goes well, Terminal should output an array of pixel values which you can copy. For an image like this （if you need more test images, here's a wonderful image dataset on Kaggle https://www.kaggle.com/scolianni/mnistasjpg):
 
-<img src="imgs/digit3.png" alt="drawing" width="200"/>
+<img src="imgs/digit2.jpg" alt="drawing" width="200"/>
 
 The Python program should return an array like this:
 
-["0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee","0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee","0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffff92929200000000","0x0000000000000000000000000000ffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffff00000000000000000000000000000000","0x00006d6d6d565656575757000000000000a6a6a6ffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffff000000000000000000000000ffffffffffffffffffff","0xffffffffffffffffffffffffffff000000000000fbfbfbffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffff000000000000a1a1a1ffffffffffffffffffffffffffffffff","0xffffffffffffffff000000000000000000000000000000ffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xff000000000000000000ffffffffffffffffffffffffffffffffffffffffffff","0xffff9c9c9c000000000000ffffffffffffffffff000000000000ffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffff0000","0x00000000000000fffffffffffffffffffffffffffffffffffffffffffffffffc","0xfcfc000000000000ffffffffffffffffffffffff000000000000ffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffff0000000000","0x007e7e7effffffffffffffffffffffffffffffffffffffffffffffffffffff00","0x0000000000ffffffffffffffffffffffffffffffffffff000000b7b7b7ffffff","0xf0f0f0fffffffffffffffffffffffffffffffffffffffffff6f6f6000000aaaa","0xaaffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000","0x0000ffffffffffffffffffffffffffffffffffffffffff000000000000ffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffff000000000000ffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffe9e9e9000000fd","0xfdfdffffffffffffffffffffffffffffffffffffffffff6d6d6d000000ffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffff000000000000ffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffff000000000000ff","0xffffffffffffffffffffffffffffffffffffffffffffffffffff000000ffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffff000000000000ffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffff000000000000ff","0xffffffffffffffffffffffffffffffffffffffffffffffffffff000000ffffff","0xf0f0f0ffffffffffffffffffffffffffffff979797000000ffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffff000000000000ff","0xffffffffffffffffffffffffffffffffffffffffffffffffffff000000ffffff","0xf0f0f0ffffffffffffffffffffffffffffffb2b2b2000000ffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffff000000000000ff","0xffffffffffffffffffffffffffffffffffffffffffffff000000000000ffffff","0xf0f0f0ffffffffffffffffffffffffffffffeaeaea000000ffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000","0x0000ffffffffffffffffffffffffffffffffffffc4c4c4000000cacacaffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffff000000000000ffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00","0x0000000000ffffffffffffffffffffffffbababa000000000000ffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffcbcbcbffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffff0000000000003838385f5f5f000000000000000000ffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffff020202000000000000000000e6e6e6ffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xf0f0f0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee","0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee","0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"]
+["0x0000000000000000000001000002010005000007000009000000000000000000","0x0000000000060000030000050001010800010100000000000000000000000000","0x030400040000040000090000000a000200000000000000000000000000000000","0x000000000000000500000501000000000000000000000000060007050d110826","0x5a5911020000000000000000000000000000000000004b7f7d7d797e7e7f1603","0x000200040000000000000000000000000324667f77797f7f7d7c64631c000900","0x000000000000000000000000006d7f787f7c7d7d7d7f7f797018000600000000","0x00000001010101000020727f7f7a3b1114377d7f7c3e0a000000000000000000","0x0000000006001f33383a11000000647a7f7f0006000000000100000000000001","0x00000102000500030300257a7f7f020000000000000000000101020200070000","0x000400010000117f7f7e05050000000000000001010100000101000605000000","0x0306317f7f7c0706000000000000000000000000000000000203050000085c7b","0x7f79060000000000010100000000010202000500192f2a02020c7b7b7f680004","0x00000000020000000003070931335b5e767e7e5f5f71797e6909030000000000","0x0002000010365c7b7f797f7a7f7f797d7f787f7f6d3e04000000000001000000","0x3f7f757f7f7b726a797d7f7f7c7f7e7c7f79550600000000000500047e7f7f74","0x652a001a62777f71774736607f787f5a0000000003000b007a797f7f6c75716a","0x7a7d7f772600000a5b7b77790000000000000002527d7f7a7f797e7d7f62351d","0x00090103001b7f4f00000000000c000003115361585b52160105030300000200","0x0000070100000000050007000600020000000300030000000400050002000005","0x000000000007000200000c000004000004000500000000010000030000000000","0x0000000000000000000000000000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000000000000000000000000000"]
 
 ## Running the Contract on Custom Image
 
 Now let's go back to Remix to infer the contract.
 
-From ![atAddress](imgs/atAddress.png), type in your contract address and then click the button to load your contract. (If it doesn't load, try compile your contract again) Now click on the dropdown arrow and you can see the list of callable functions in the contract. paste your custom image input (that monstrous array above) into SetInput and then click the button, confirm the transaction in the popup window.
+From ![atAddress](imgs/atAddress.png), type in your contract address and then click the button to load your contract. (If it doesn't load, try compile your contract again)
+
+Now click on the dropdown arrow and you can see the list of callable functions in the contract like this:
+
+![callables](imgs/callable.png)
+
+Paste your custom image input (that monstrous array above) into SetInput and then click the button, confirm the transaction in the popup window.
 
 Finally, click on DigitRecognitionInfer, confirm the transaction. Your final inference result should be stored in currentInferResult in a few seconds!
+
+Expect to see something like this:
+![res](imgs/res.png)
+(Don't worry about the 0 in front; your final result is stored is behind the "uint256"). As you can see the model has successfully determined that the image is a 2.
 
 Congratulations! You are now one of the first people on earth to have successfully written, compiled, deployed and executed an AI DApp. If you have any questions, feel free to reach out to the Cortex team. Join our Telegram group at https://t.me/CortexOfficialENOF
 
@@ -252,11 +276,3 @@ where [ row1 ] looks like [ [col1],[col2],[col3],[col4]...[col32]] and within ea
 **Question 2:** How do I deploy my contract to MainNet?
 
 **Answer 2:** Simply switch to MainNet in your Cortex wallet and repeat all steps from above!
-
----
-
-### To-dos
-
-1.  Right now SetInput has bug: error encoding arguments syntraxerror: unexpected token ' array
-
-2.  TestNet faucets?
